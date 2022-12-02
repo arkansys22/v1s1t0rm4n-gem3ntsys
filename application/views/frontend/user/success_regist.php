@@ -13,7 +13,6 @@
   <div class="on-board field-card">
   <div class="account-onborad complte-board back-home">
   <img src="<?php echo base_url() ?>bahan/frontend/template/img/select-03.png" class="img-fluid" alt="icon">
-  <h2>Hi, Eugene Forest</h2>
   <p>Your registration is currently awaiting verification. To ensure your registration is accepted, please login with the email address and password that you registered</p>
   <a href="<?php echo base_url() ?>login" class="btn btn-primary">LOG IN</a>
   </div>

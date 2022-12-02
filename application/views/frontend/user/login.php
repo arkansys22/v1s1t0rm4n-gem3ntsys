@@ -37,7 +37,7 @@
   <div class="col-6 text-start">
     <a class="forgot-link" href="#">Forgotten password ?</a>
   </div>
-  <div class="col-6 text-end dont-have"><a href="regist-visitor">Visit Registration</a></div>
+  <div class="col-6 text-end dont-have"><a href="regist-visitor">Visit Registration</a> | <a href="signup-tenant">Tenant Registration</a></div>
 </div>
 
 <?php echo form_close(); ?>
