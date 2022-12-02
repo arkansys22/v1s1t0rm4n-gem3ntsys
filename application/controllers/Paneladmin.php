@@ -17,58 +17,11 @@ class Paneladmin extends CI_Controller {
 	public function home()
 	{
 		if ($this->session->level=='1'){
-			$data['karyawan_menu_open']   = '';
-			$data['home_stat']   = 'active';
-			$data['identitas_stat']   = '';
-			$data['profil_stat']   = '';
-			$data['sliders_stat']   = '';
-			$data['products_stat']   = '';
-			$data['cat_products_stat']   = '';
-			$data['testimonial_stat']   = '';
-			$data['blogs_stat']   = '';
-			$data['message_stat']   = '';
-			$data['gallery_stat']   = ''; 		$data['kehadiran_menu_open']   = ''; 	    $data['jamkerja_stat']   = ''; 	    $data['absen_stat']   = ''; 	    $data['dataabsen_stat']   = ''; 	    $data['cuti_stat']   = ''; 	    $data['gaji_stat']   = ''; 	    $data['pengumuman_stat']   = ''; 	    $data['konfig_stat']   = '';
-
-			$data['produk_menu_open']   = '';
- 			$data['produk_category']   = '';
- 			$data['produk']   = '';
- 			$data['services']   = '';
-			$this->load->view('backend/home', $data);
+			$this->load->view('backend/home');
 		}elseif ($this->session->level=='2'){
-			$data['karyawan_menu_open']   = '';
-			$data['home_stat']   = 'active';
-			$data['identitas_stat']   = '';
-			$data['profil_stat']   = '';
-			$data['sliders_stat']   = '';
-			$data['products_stat']   = '';
-			$data['cat_products_stat']   = '';
-			$data['testimonial_stat']   = '';
-			$data['blogs_stat']   = '';
-			$data['message_stat']   = '';
-			$data['gallery_stat']   = ''; 		$data['kehadiran_menu_open']   = ''; 	    $data['jamkerja_stat']   = ''; 	    $data['absen_stat']   = ''; 	    $data['dataabsen_stat']   = ''; 	    $data['cuti_stat']   = ''; 	    $data['gaji_stat']   = ''; 	    $data['pengumuman_stat']   = ''; 	    $data['konfig_stat']   = '';
-			$data['produk_menu_open']   = '';
- 			$data['produk_category']   = '';
- 			$data['produk']   = '';
- 			$data['services']   = '';
-
-			$this->load->view('backend/home', $data);
-		}elseif ($this->session->level=='3'){
-            $data['karyawan_menu_open']   = '';
-			$data['home_stat']   = 'active';
-			$data['identitas_stat']   = '';
-			$data['profil_stat']   = '';
-			$data['sliders_stat']   = '';
-			$data['products_stat']   = '';
-			$data['cat_products_stat']   = '';
-			$data['testimonial_stat']   = '';
-			$data['blogs_stat']   = '';
-			$data['message_stat']   = '';
-			$data['gallery_stat']   = ''; 		$data['kehadiran_menu_open']   = ''; 	    $data['jamkerja_stat']   = ''; 	    $data['absen_stat']   = ''; 	    $data['dataabsen_stat']   = ''; 	    $data['cuti_stat']   = ''; 	    $data['gaji_stat']   = ''; 	    $data['pengumuman_stat']   = ''; 	    $data['konfig_stat']   = '';
-			$data['produk_menu_open']   = '';
- 			$data['produk_category']   = '';
- 			$data['produk']   = '';
- 			$data['services']   = '';
-				$this->load->view('backend/home', $data);
+			$this->load->view('backend/home');
+		}elseif ($this->session->level=='3'){            
+				$this->load->view('backend/home');
 		}else{
 			redirect(base_url());
 		}
