@@ -100,7 +100,7 @@ input:-webkit-autofill:focus {
 	font-family: 'Titillium Web', sans-serif;
 }
 .form-control:focus {
-	box-shadow: 0 0 10px rgba(136, 136, 136, 0.125); 
+	box-shadow: 0 0 10px rgba(136, 136, 136, 0.125);
 	outline: 0 none;
 	border-color: #c1c9d0;;
 }
@@ -130,7 +130,7 @@ p {
     margin-top: 0;
     margin-bottom: 1rem;
 }
-p:last-child { 
+p:last-child {
     margin-bottom: 0;
 }
 dl, ol, ul {
@@ -170,7 +170,7 @@ textarea.form-control {
 }
 .form-group {
 	margin-bottom: 1.25rem;
-} 
+}
 label {
     display: inline-block;
     margin-bottom: 10px;
@@ -1148,7 +1148,7 @@ button.bg-danger:hover {
 .zone input {
 	cursor: pointer;
 	display: block;
-	
+
 	left: 0;
 	position: absolute;
 	top: 0;
@@ -1156,7 +1156,7 @@ button.bg-danger:hover {
 	border-radius: 5px;
 }
 .zone label {
-	
+
 }
 .zone input[type=file] {
  	opacity: 0;
@@ -1911,11 +1911,12 @@ button.bg-danger:hover {
 .user-img {
 	display: inline-block;
 	margin-right: 3px;
+	margin-top: 15px;
 	position: relative;
 }
 .user-img img{
 	width: 30px;
-    border-radius: 50%;
+  border-radius: 50%;
 }
 .dropdown-item img{
 	margin-right: 5px;
@@ -2157,7 +2158,7 @@ html.menu-opened body {
     display: flex;
     justify-content: space-between;
 }
-.chat-window .chat-cont-left .chat-users-list a.media .media-body > div:first-child .user-name, 
+.chat-window .chat-cont-left .chat-users-list a.media .media-body > div:first-child .user-name,
 .chat-window .chat-cont-left .chat-users-list a.media .media-body > div:first-child .user-last-chat {
     max-width: 250px;
     overflow: hidden;
@@ -2351,7 +2352,7 @@ html.menu-opened body {
     border: none;
     box-shadow: none;
 }
-.chat-window .chat-cont-right .chat-footer .input-group .input-group-prepend .btn, 
+.chat-window .chat-cont-right .chat-footer .input-group .input-group-prepend .btn,
 .chat-window .chat-cont-right .chat-footer .input-group .input-group-append .btn {
     background-color: transparent;
     border: none;
@@ -2663,7 +2664,7 @@ html.menu-opened body {
 -----------------------*/
 
 .sidebar {
-	background-color: #FFF8F7; 
+	background-color: #FFF8F7;
 	bottom: 0;
 	left: 0;
 	margin-top: 0;
@@ -2683,7 +2684,7 @@ html.menu-opened body {
 	height: 100%;
 	min-height: 100%;
 	transition: all 0.2s ease-in-out 0s;
-} 
+}
 .sidebar-menu {
 	padding: 15px;
 }
@@ -2706,7 +2707,7 @@ html.menu-opened body {
 }
 .sidebar-menu > ul > li > a:hover {
 	background-color: rgba(118, 56, 255, 0.05);
-    color: #FF5B37; 
+    color: #FF5B37;
 }
 .sidebar-menu li.active > a {
     color: #FF5B37;
@@ -2822,7 +2823,7 @@ html.menu-opened body {
 	top: 10px;
 }
 .sidebar-menu > ul > li > a {
-	align-items: center; 
+	align-items: center;
 	display: flex;
 	justify-content: flex-start;
 	padding: 10px 15px;
@@ -2914,7 +2915,7 @@ html.menu-opened body {
 .fc-unthemed .fc-popover {
 	border-color: #f3f3f3;
 }
-.fc-basic-view .fc-day-number, 
+.fc-basic-view .fc-day-number,
 .fc-basic-view .fc-week-number {
     padding: 2px 5px;
 }
@@ -3244,7 +3245,7 @@ table.table-inbox tbody tr.checked {
 }
 .page-wrapper > .content {
 	padding: 1.875rem 1.875rem 0;
-} 
+}
 .page-header {
     margin-bottom: 20px;
 }
@@ -3357,7 +3358,7 @@ table.table-inbox tbody tr.checked {
 	font-size: 12px;
 	z-index: 1;
 }
-.form-focus .form-control:focus ~ .focus-label, 
+.form-focus .form-control:focus ~ .focus-label,
 .form-focus .form-control:-webkit-autofill ~ .focus-label {
 	opacity: 1;
 	font-weight: 400;
@@ -3367,7 +3368,7 @@ table.table-inbox tbody tr.checked {
 }
 .form-focus .form-control {
 	height: 50px;
-	padding: 21px 12px 6px;	
+	padding: 21px 12px 6px;
 	border: 1px solid #FFE6E1;
 }
 .form-focus .form-control::-webkit-input-placeholder {
@@ -3473,7 +3474,7 @@ table.table-inbox tbody tr.checked {
 .social-login  {
 	border-bottom: 1px solid #E9E9E9;
     padding-bottom: 30px;
-}	
+}
 .social-login .btn:hover, .social-login .btn:focus {
 	color: #fff;
 }
@@ -3747,7 +3748,7 @@ table.table-inbox tbody tr.checked {
 }
 .custom-file-label::after {
 	margin: 0.1rem;
-	height: 41px;    
+	height: 41px;
 	border-radius: 5px;
 	padding: 10px 10px;
 	border-left: 0;
@@ -3981,9 +3982,9 @@ table.table-inbox tbody tr.checked {
 .activity-feed .feed-item .feed-text a {
 	color: #333;
 	font-weight: 600;
-} 
-.modal-icon i {   
-    font-size: 42px;   
+}
+.modal-icon i {
+    font-size: 42px;
     color: #6c757d;
 }
 .modal-footer {
@@ -4011,7 +4012,7 @@ table.table-inbox tbody tr.checked {
 	padding: 40px;
 	border-radius: 50%;
 	background: #FFB8A8;
-	position: absolute; 
+	position: absolute;
 	bottom: -27px;
 	right: -27px;
 	font-size: 60px;
@@ -4167,7 +4168,7 @@ table.table-inbox tbody tr.checked {
 	position: relative;
 	display: -inline-flexbox;
 	display: inline-flex;
-	vertical-align: middle; 
+	vertical-align: middle;
 }
 
 /*-----------------
@@ -4453,8 +4454,8 @@ table.table-inbox tbody tr.checked {
     display: none;
 }
 .onoffswitch-label {
-    display: block; 
-	overflow: hidden; 
+    display: block;
+	overflow: hidden;
 	cursor: pointer;
 	border-radius: 20px;
 	margin-bottom: 0;
@@ -4506,7 +4507,7 @@ table.table-inbox tbody tr.checked {
     margin-left: 0;
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
-    right: 0px; 
+    right: 0px;
 }
 .settings-btns {
 	font-family: 'Titillium Web', sans-serif;
@@ -4717,7 +4718,7 @@ table.table-inbox tbody tr.checked {
 	-webkit-transform: translate3d(.81094rem, 50%, 0);
 	transform: translate3d(.81094rem, 50%, 0)
 }
- 
+
 /*-----------------
 	24. Profile
 -----------------------*/
@@ -5898,7 +5899,7 @@ table.table-inbox tbody tr.checked {
 	.mini-sidebar.expand-menu .sidebar .sidebar-menu ul > li > a span {
 		display: inline;
 		opacity: 1;
-	} 
+	}
 	.mini-sidebar .page-wrapper {
 		margin-left: 78px;
 	}
@@ -6142,7 +6143,7 @@ table.table-inbox tbody tr.checked {
 		font-size: 15px;
 		padding: 8px 26px;
 	}
-	.add-links { 
+	.add-links {
 		font-size: 15px;
 		padding: 8px 18px;
 	}

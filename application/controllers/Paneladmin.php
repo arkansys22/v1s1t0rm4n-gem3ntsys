@@ -20,7 +20,7 @@ class Paneladmin extends CI_Controller {
 			$this->load->view('backend/home');
 		}elseif ($this->session->level=='2'){
 			$this->load->view('backend/home');
-		}elseif ($this->session->level=='3'){            
+		}elseif ($this->session->level=='3'){
 				$this->load->view('backend/home');
 		}else{
 			redirect(base_url());
@@ -114,21 +114,6 @@ class Paneladmin extends CI_Controller {
                 return false;
             }
   }
-	public function logout()
-	{
-		$id = array('id_session' => $this->session->id_session);
-						$data = array('user_login_status'=>'offline');
-						$this->db->update('user', $data, $id);
-            // Unset user data
-            $this->session->unset_userdata('logged_in');
-            $this->session->unset_userdata('user_id');
-            $this->session->unset_userdata('username');
-
-            // Set message
-            $this->session->set_flashdata('user_logout', 'You are now logged out');
-						$this->session->sess_destroy();
-            redirect(base_url());
-    }
 	public function profil()
 	{
 		cek_session_akses($this->session->id_session);

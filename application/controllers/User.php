@@ -195,7 +195,7 @@ class User extends CI_Controller {
 										$id = array('id_session' => $this->session->id_session);
 									 	$data = array('user_login_status'=>'online','user_login_tanggal'=> date('Y-m-d'),'user_login_jam'=> date('H:i:s'));
 									 	$this->db->update('user', $data, $id);
-										redirect('paneladmin/home');
+										redirect('paneluser/home');
 									}else {
                     // Set message
                     $this->session->set_flashdata('login_failed', 'The email address and password you entered is unregisted');

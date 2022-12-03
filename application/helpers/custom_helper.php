@@ -1,17 +1,33 @@
 <?php
-function cek_session_akses($id){
+function cek_session_developer($id){
   $ci = & get_instance();
   $session = $ci->db->query("SELECT * FROM user WHERE user.id_session='$id'")->num_rows();
   if ($session == '0' AND $ci->session->userdata('level') != '1' ){
-    redirect(base_url().'paneladmin/home');
+    redirect(base_url().'paneluser/home');
   }
 }
 
-function cek_session_super_user($id){
+function cek_session_administrator($id){
   $ci = & get_instance();
   $session = $ci->db->query("SELECT * FROM user WHERE user.id_session='$id'")->num_rows();
   if ($session == '0' AND $ci->session->userdata('level') != '2'){
-    redirect(base_url().'paneladmin/home');
+    redirect(base_url().'paneluser/home');
+  }
+}
+
+function cek_session_tenant($id){
+  $ci = & get_instance();
+  $session = $ci->db->query("SELECT * FROM user WHERE user.id_session='$id'")->num_rows();
+  if ($session == '0' AND $ci->session->userdata('level') != '3'){
+    redirect(base_url().'paneluser/home');
+  }
+}
+
+function cek_session_visitor($id){
+  $ci = & get_instance();
+  $session = $ci->db->query("SELECT * FROM user WHERE user.id_session='$id'")->num_rows();
+  if ($session == '0' AND $ci->session->userdata('level') != '4'){
+    redirect(base_url().'paneluser/home');
   }
 }
 function hari_ini($w){
