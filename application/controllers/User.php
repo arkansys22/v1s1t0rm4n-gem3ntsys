@@ -42,6 +42,32 @@ class User extends CI_Controller {
 	              $agent = 'Unidentified User Agent';
 	        }
 
+					$config['upload_path'] = 'bahan/foto_user_detail/';
+					$config['allowed_types'] = 'gif|jpg|png|JPG|JPEG';
+					$this->upload->initialize($config);
+					$this->upload->do_upload('user_detail_gambar');
+					$selfie=$this->upload->data();
+					$config['image_library']='gd2';
+					$config['source_image'] = './bahan/foto_user_detail/'.$selfie['file_name'];
+					$config['create_thumb']= FALSE;
+					$config['maintain_ratio']= FALSE;
+					$config['quality']= '80%';
+					$config['new_image']= './bahan/foto_user_detail/'.$selfie['file_name'];
+					$this->load->library('image_lib', $config);
+					$this->image_lib->resize();
+
+					$this->upload->initialize($config);
+					$this->upload->do_upload('user_detail_idcard');
+					$idcard=$this->upload->data();
+					$config['image_library']='gd2';
+					$config['source_image'] = './bahan/foto_user_detail/'.$idcard['file_name'];
+					$config['create_thumb']= FALSE;
+					$config['maintain_ratio']= FALSE;
+					$config['quality']= '80%';
+					$config['new_image']= './bahan/foto_user_detail/'.$idcard['file_name'];
+					$this->load->library('image_lib', $config);
+					$this->image_lib->resize();
+
         $enc_password = sha1($this->input->post('password'));
         $data_user = array(
                   'email' => $this->input->post('email'),
@@ -63,6 +89,8 @@ class User extends CI_Controller {
 									'user_detail_contactto' => $this->input->post('user_detail_contactto'),
 									'user_detail_vdatefrom' => $this->input->post('user_detail_vdatefrom'),
 									'user_detail_vdateend' => $this->input->post('user_detail_vdateend'),
+									'user_detail_idcard'=>$idcard['file_name'],
+									'user_detail_gambar'=>$selfie['file_name'],
 									'user_detail_post_hari'=>hari_ini(date('w')),
                   'user_detail_post_tanggal'=>date('Y-m-d'),
                   'user_detail_post_jam'=>date('H:i:s'),

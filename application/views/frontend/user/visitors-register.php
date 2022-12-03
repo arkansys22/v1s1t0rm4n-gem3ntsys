@@ -36,9 +36,10 @@
   <div class="col-md-12 col-lg-6 col-xl-6 ">
     <div class="form-group form-focus">
       <div class="pro-form-img">
-      <img src="<?php echo base_url() ?>bahan/frontend/template/img/user/avatar-3.jpg" alt="User Image">
+      <img src="<?php echo base_url() ?>bahan/frontend/image/selfie.png" alt="User Image">
       <label class="file-upload image-upbtn ">
-      Take Your Photo <input type="file" accept="image/*" capture="camera" name="user_detail_gambar">
+      Take Your Photo
+      <input type="file" accept="image/*" capture="camera" name="user_detail_gambar" required>
       </label>
       </div>
     </div>
@@ -47,9 +48,10 @@
   <div class="col-md-12 col-lg-6 col-xl-6 ">
     <div class="form-group form-focus">
       <div class="pro-form-img">
-      <img src="<?php echo base_url() ?>bahan/frontend/template/img/user/avatar-3.jpg" alt="User Image">
+      <img src="<?php echo base_url() ?>bahan/frontend/image/ktp.png" alt="User Image">
       <label class="file-upload image-upbtn ">
-      Upload Your ID Card <input type="file" accept="image/*" capture="camera" name="user_detail_idcard">
+      Upload Your ID Card
+      <input type="file" name="user_detail_idcard" required>
       </label>
       </div>
     </div>

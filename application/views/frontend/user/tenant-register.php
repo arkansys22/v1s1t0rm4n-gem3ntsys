@@ -2,6 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
+  <meta NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
   <title>aSPanel | Sign up tenant to VMS</title>
   <?php $this->load->view('frontend/css')?>
