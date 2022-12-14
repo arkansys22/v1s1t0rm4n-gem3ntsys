@@ -18,7 +18,7 @@
 <h2>Visit Registration</h2>
 </div>
 <?php $attributes = array('class'=>'form-horizontal','role'=>'form');
-echo form_open_multipart('visitor',$attributes); ?>
+echo form_open_multipart('regist-visitor',$attributes); ?>
 <div class="row">
   <div class="col-md-12 col-lg-6 col-xl-6 ">
     <div class="form-group form-focus">
@@ -39,7 +39,7 @@ echo form_open_multipart('visitor',$attributes); ?>
       <div class="pro-form-img">
       <img src="<?php echo base_url() ?>bahan/frontend/image/selfie.png" alt="User Image">
       <label class="file-upload image-upbtn ">
-      Take Your Photo
+      Your Photo Selfie
       <input type="file" accept="image/*" capture="camera" name="user_detail_gambar">
       </label>
       </div>
@@ -49,10 +49,10 @@ echo form_open_multipart('visitor',$attributes); ?>
   <div class="col-md-12 col-lg-6 col-xl-6 ">
     <div class="form-group form-focus">
       <div class="pro-form-img">
-      <img src="<?php echo base_url() ?>bahan/frontend/image/ktp.png" alt="User Image">
+      <img src="<?php echo base_url() ?>bahan/frontend/image/ktp.png" alt="Indonesian Identity Card">
       <label class="file-upload image-upbtn ">
-      Upload Your ID Card
-      <input type="file" name="user_detail_idcard">
+     Your Photo Indonesian Identity Card
+      <input type="file" accept="image/*" capture="camera" name="user_detail_idcard">
       </label>
       </div>
     </div>

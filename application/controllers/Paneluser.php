@@ -26,9 +26,37 @@ class Paneluser extends CI_Controller {
 			cek_session_visitor($this->session->id_session);
 				$data['user'] = $this->Crud_m->view_where('user', array('email'=> $this->session->email))->row_array();
 				$this->load->view('backend/paneluser/dashboard-visitor',$data);
+		}elseif ($this->session->level=='5'){
+			cek_session_receptionist($this->session->id_session);
+				$data['user'] = $this->Crud_m->view_where('user', array('email'=> $this->session->email))->row_array();
+				$this->load->view('backend/paneluser/dashboard-receptionist',$data);
 		}else{
 			redirect(base_url());
 		}
 	}
+	public function verify_visitor()
+	{
+		if ($this->session->level=='1'){
+			cek_session_developer($this->session->id_session);
+			$this->load->view('backend/paneluser/dashboard-developer');
+		}elseif ($this->session->level=='2'){
+			cek_session_administrator($this->session->id_session);
+			$this->load->view('backend/paneluser/dashboard-administrator');
+		}elseif ($this->session->level=='3'){
+			cek_session_tenant($this->session->id_session);
+				$this->load->view('backend/paneluser/dashboard-tenant');
+		}elseif ($this->session->level=='4'){
+			cek_session_visitor($this->session->id_session);
+				$data['user'] = $this->Crud_m->view_where('user', array('email'=> $this->session->email))->row_array();
+				$this->load->view('backend/paneluser/dashboard-visitor',$data);
+		}elseif ($this->session->level=='5'){
+			cek_session_receptionist($this->session->id_session);
+				$data['user'] = $this->Crud_m->view_where('user', array('email'=> $this->session->email))->row_array();
+				$this->load->view('backend/paneluser/verify-visitor',$data);
+		}else{
+			redirect(base_url());
+		}
+	}
+
 
 }

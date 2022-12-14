@@ -109,9 +109,8 @@
 </span>
 </a>
 <div class="dropdown-menu">
-<a class="dropdown-item" href="profile.html"><i data-feather="user" class="me-1"></i> Profile</a>
-<a class="dropdown-item" href="settings.html"><i data-feather="settings" class="me-1"></i> Settings</a>
-<a class="dropdown-item" href="login.html"><i data-feather="log-out" class="me-1"></i> Logout</a>
+<a class="dropdown-item" href="#"><i data-feather="user" class="me-1"></i> Profile</a>
+<a class="dropdown-item" href="<?php echo base_url()?>logout"><i data-feather="log-out" class="me-1"></i> Logout</a>
 </div>
 </li>
 
