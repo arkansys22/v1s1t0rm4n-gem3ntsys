@@ -58,13 +58,7 @@ echo form_open_multipart('regist-visitor',$attributes); ?>
     </div>
     <small><?php echo form_error('user_detail_idcard'); ?></small>
   </div>
-  <div class="col-md-12 col-lg-6 col-xl-6 ">
-    <div class="form-group form-focus">
-      <input type="email" class="form-control floating" name="email" value="<?php echo set_value('email') ?>">
-      <label class="focus-label">Email Address</label>
-    </div>
-    <small><?php echo form_error('email'); ?></small>
-  </div>
+
   <div class="col-md-12 col-lg-6 col-xl-6 ">
     <div class="form-group form-focus">
       <input type="text" class="form-control floating" name="user_detail_contactto" value="<?php echo set_value('user_detail_contactto') ?>">

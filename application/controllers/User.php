@@ -13,7 +13,6 @@ class User extends CI_Controller {
 	{
 		$data['title'] = 'Sign Up';
 		$this->form_validation->set_rules('nama','','required', array('required'=>'Fill your name please'));
-		$this->form_validation->set_rules('email','','required|valid_email|is_unique[user.email]', array('required' => 'Fill your email please','is_unique' => 'Email address already registered, please use another email address.'));
 		$this->form_validation->set_rules('user_detail_notlp','','required', array('required'=>'Fill your number telphone please'));
 		$this->form_validation->set_rules('user_detail_contactto','','required', array('required'=>'Fill in the name you want to visit'));
 		$this->form_validation->set_rules('user_tenant_id','','required', array('required'=>'Fill in the name of the tenant you want to visit'));
@@ -81,7 +80,6 @@ class User extends CI_Controller {
 					$this->ciqrcode->initialize($config);
 
 					$data_user = array(
-									'email' => $this->input->post('email'),
 									'user_status' => '2',
 									'level' => '4',
 									'user_post_hari'=>hari_ini(date('w')),
