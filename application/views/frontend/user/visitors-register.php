@@ -23,7 +23,7 @@ echo form_open_multipart('regist-visitor',$attributes); ?>
   <div class="col-md-12 col-lg-6 col-xl-6 ">
     <div class="form-group form-focus">
       <input type="text" class="form-control floating" name="nama" value="<?php echo set_value('nama') ?>">
-      <label class="focus-label">Name</label>
+      <label class="focus-label">Full Name</label>
     </div>
     <small><?php echo form_error('nama'); ?></small>
   </div>
