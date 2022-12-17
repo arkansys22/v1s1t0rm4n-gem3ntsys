@@ -14,7 +14,6 @@ class User extends CI_Controller {
 		$data['title'] = 'Sign Up';
 		$this->form_validation->set_rules('nama','','required', array('required'=>'Fill your name please'));
 		$this->form_validation->set_rules('email','','required|valid_email|is_unique[user.email]', array('required' => 'Fill your email please','is_unique' => 'Email address already registered, please use another email address.'));
-		$this->form_validation->set_rules('password','','required', array('required'=>'Fill your password please'));
 		$this->form_validation->set_rules('user_detail_notlp','','required', array('required'=>'Fill your number telphone please'));
 		$this->form_validation->set_rules('user_detail_contactto','','required', array('required'=>'Fill in the name you want to visit'));
 		$this->form_validation->set_rules('user_tenant_id','','required', array('required'=>'Fill in the name of the tenant you want to visit'));
@@ -22,8 +21,6 @@ class User extends CI_Controller {
 		$this->form_validation->set_rules('user_detail_vdatefrom','','required', array('required'=>'Enter your arrival date'));
 		$this->form_validation->set_rules('user_detail_vdateend','','required', array('required'=>'Fill in the end date of your visit'));
 		$this->form_validation->set_rules('user_detail_reason','','required', array('required'=>'Enter the reason for your visit'));
-		$this->form_validation->set_rules('user_detail_gambar','','required', array('required'=>'Take your photo selfie'));
-		$this->form_validation->set_rules('user_detail_idcard','','required', array('required'=>'Take your Indonesian identity card'));
 
 		if($this->form_validation->run() === FALSE){
 				$this->load->view('frontend/user/visitors-register',$data);
@@ -59,7 +56,6 @@ class User extends CI_Controller {
 					$config['source_image'] = './bahan/foto_user_detail/'.$selfie['file_name'];
 					$config['create_thumb']= FALSE;
 					$config['maintain_ratio']= FALSE;
-					$config['quality']= '80%';
 					$config['new_image']= './bahan/foto_user_detail/'.$selfie['file_name'];
 					$this->load->library('image_lib', $config);
 					$this->image_lib->resize();
@@ -71,7 +67,6 @@ class User extends CI_Controller {
 					$config['source_image'] = './bahan/foto_user_detail/'.$idcard['file_name'];
 					$config['create_thumb']= FALSE;
 					$config['maintain_ratio']= FALSE;
-					$config['quality']= '80%';
 					$config['new_image']= './bahan/foto_user_detail/'.$idcard['file_name'];
 					$this->load->library('image_lib', $config);
 					$this->image_lib->resize();
@@ -85,12 +80,8 @@ class User extends CI_Controller {
 					$config['black']     = array(224,255,255);
 					$this->ciqrcode->initialize($config);
 
-
-
-					$enc_password = sha1($this->input->post('password'));
 					$data_user = array(
 									'email' => $this->input->post('email'),
-									'password' => $enc_password,
 									'user_status' => '2',
 									'level' => '4',
 									'user_post_hari'=>hari_ini(date('w')),

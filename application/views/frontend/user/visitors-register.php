@@ -15,7 +15,7 @@
 <div class="login-right">
 <div class="login-header text-center">
 <a href="#"><img src="<?php echo base_url() ?>bahan/frontend/template/img/logo-01.png" alt="" class="img-fluid"></a>
-<h2>Visit Registration</h2>
+<h2>Visitor Registration Form</h2>
 </div>
 <?php $attributes = array('class'=>'form-horizontal','role'=>'form');
 echo form_open_multipart('regist-visitor',$attributes); ?>
@@ -67,15 +67,8 @@ echo form_open_multipart('regist-visitor',$attributes); ?>
   </div>
   <div class="col-md-12 col-lg-6 col-xl-6 ">
     <div class="form-group form-focus">
-      <input type="password" class="form-control floating" name="password"  value="<?php echo set_value('password') ?>">
-      <label class="focus-label">Password</label>
-    </div>
-    <small><?php echo form_error('password'); ?></small>
-  </div>
-  <div class="col-md-12 col-lg-6 col-xl-6 ">
-    <div class="form-group form-focus">
       <input type="text" class="form-control floating" name="user_detail_contactto" value="<?php echo set_value('user_detail_contactto') ?>">
-      <label class="focus-label">Contact To</label>
+      <label class="focus-label">Designation</label>
     </div>
     <small><?php echo form_error('user_detail_contactto'); ?></small>
   </div>
@@ -118,7 +111,7 @@ echo form_open_multipart('regist-visitor',$attributes); ?>
   <div class="col-md-12 col-lg-6 col-xl-6 ">
     <div class="form-group form-focus">
       <input type="text" class="form-control" name="user_detail_reason"  value="<?php echo set_value('user_detail_reason') ?>">
-      <label class="focus-label">Reason</label>
+      <label class="focus-label">Purpose Of The Visit</label>
     </div>
     <small><?php echo form_error('user_detail_reason'); ?></small>
   </div>
