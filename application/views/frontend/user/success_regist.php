@@ -12,9 +12,14 @@
 
   <div class="on-board field-card">
   <div class="account-onborad complte-board back-home">
-  <img src="<?php echo base_url() ?>bahan/frontend/template/img/select-03.png" class="img-fluid" alt="icon">
-  <p>Your registration is currently awaiting verification. To ensure your registration is accepted, please login with the email address and password that you registered</p>
-  <a href="<?php echo base_url() ?>login" class="btn btn-primary">LOG IN</a>
+    <h2>
+        <br><br>
+      <a href="#"><img src="<?php echo base_url() ?>bahan/frontend/image/gandaria8.png" alt="" class="img-fluid"></a><br>
+      Visit Registration Code<h2>
+  <img src="<?php echo base_url() ?>bahan/qrcode/b53b3a3d6ab90ce0268229151c9bde11-20221212164706.png" class="img-fluid" alt="icon">
+  <h4>Please show this code to the building receptionist for approval <p>Validate 17 Dec 2022 | 08.00 - 17.00</p>
+  </h4>
+  <h5>provided by Dhawy</h5>
   </div>
 </div>
 </div>
