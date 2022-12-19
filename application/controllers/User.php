@@ -240,7 +240,7 @@ class User extends CI_Controller {
 	}
 	public function success()
 	{
-
+		$data['qrcode'] = $this->session->userdata('qrcode');
 		$data['vdatefrom'] = $this->session->userdata('vdatefrom');
 		$this->load->view('frontend/user/success_regist',$data);
 	}

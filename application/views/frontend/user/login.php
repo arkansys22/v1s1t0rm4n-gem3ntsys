@@ -32,7 +32,7 @@
 <input type="password" class="form-control floating" name="password">
 <label class="focus-label">Password</label>
 </div>
-<button class="btn btn-primary btn-block btn-lg login-btn" type="submit">Log in</button>
+<button class="btn btn-primary btn-block btn-lg login-btn" name="submit" type="submit">Log in</button>
 <div class="row">
   <div class="col-6 text-start">
     <a class="forgot-link" href="#">Forgotten password ?</a>
