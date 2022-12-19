@@ -15,9 +15,11 @@
     <h2>
         <br><br>
       <a href="#"><img src="<?php echo base_url() ?>bahan/frontend/image/gandaria8.png" alt="" class="img-fluid"></a><br>
-      Visit Registration Code<h2>
+      Visit Registration Code
+
+      <h2>
   <img src="<?php echo base_url() ?>bahan/qrcode/b53b3a3d6ab90ce0268229151c9bde11-20221212164706.png" class="img-fluid" alt="icon">
-  <h4>Please show this code to the building receptionist for approval <p>Validate 17 Dec 2022 | 08.00 - 17.00</p>
+  <h4>Please show this code to the building receptionist for approval <p>Validate <?php echo tgl_indo($vdatefrom); ?> | 08.00 - 17.00</p>
   </h4>
   <h5>provided by Dhawy</h5>
   </div>

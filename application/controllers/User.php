@@ -69,6 +69,7 @@ class User extends CI_Controller {
 					$config['new_image']= './bahan/foto_user_detail/'.$idcard['file_name'];
 					$this->load->library('image_lib', $config);
 					$this->image_lib->resize();
+
 					$config['cacheable']    = true;
 					$config['cachedir']     = './bahan/';
 					$config['errorlog']     = './bahan/';
@@ -79,19 +80,21 @@ class User extends CI_Controller {
 					$config['black']     = array(224,255,255);
 					$this->ciqrcode->initialize($config);
 
+					$nama = $this->input->post('nama');
 					$data_user = array(
 									'user_status' => '2',
 									'level' => '4',
 									'user_post_hari'=>hari_ini(date('w')),
 									'user_post_tanggal'=>date('Y-m-d'),
 									'user_post_jam'=>date('H:i:s'),
-									'id_session'=>md5($this->input->post('email')).'-'.date('YmdHis'),
-									'nama' => $this->input->post('nama'));
+									'id_session'=>md5($this->input->post('nama')).'-'.date('YmdHis'),
+									'nama' => $nama);
 					$id_pelanggan = $this->Crud_m->tambah_user($data_user);
 
 
 					$qrcode= md5($id_pelanggan).'-'.date('YmdHis');
 					$image_name=$qrcode.'.png';
+					$vdatefrom = $this->input->post('user_detail_vdatefrom');
 					$data_user_detail = array(
 									'id_user' => $id_pelanggan,
 									'user_detail_notlp' => $this->input->post('user_detail_notlp'),
@@ -99,7 +102,7 @@ class User extends CI_Controller {
 									'user_detail_floor' => $this->input->post('user_detail_floor'),
 									'user_detail_reason' => $this->input->post('user_detail_reason'),
 									'user_detail_contactto' => $this->input->post('user_detail_contactto'),
-									'user_detail_vdatefrom' => $this->input->post('user_detail_vdatefrom'),
+									'user_detail_vdatefrom' => $vdatefrom,
 									'user_detail_vdateend' => $this->input->post('user_detail_vdateend'),
 									'user_detail_idcard'=>$idcard['file_name'],
 									'user_detail_gambar'=>$selfie['file_name'],
@@ -118,7 +121,8 @@ class User extends CI_Controller {
 								$this->ciqrcode->generate($params);
 
 								$this->Crud_m->insert('user_detail',$data_user_detail);
-								$this->session->set_flashdata('user_registered', 'You are now registered and can log in');
+								$this->session->set_userdata('vdatefrom', $vdatefrom);
+								$this->session->set_userdata('qrcode', $image_name);
 								redirect(base_url("regist-success"));
 				}
 			 }
@@ -236,7 +240,9 @@ class User extends CI_Controller {
 	}
 	public function success()
 	{
-		$this->load->view('frontend/user/success_regist');
+
+		$data['vdatefrom'] = $this->session->userdata('vdatefrom');
+		$this->load->view('frontend/user/success_regist',$data);
 	}
 
 }

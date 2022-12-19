@@ -6,7 +6,6 @@ $route['login'] = "user/login";
 $route['signup-tenant'] = "user/register_tenant";
 $route['regist-success'] = "user/success";
 $route['logout'] = "user/logout";
-
 $route['404_override'] = 'Notfound';
 $route['translate_uri_dashes'] = FALSE;
 $route['petacrawl\.xml'] = "petacrawl";

@@ -114,13 +114,13 @@ class Mylibrary{
 						return "Jul";
 						break;
 					case 8:
-						return "Agu";
+						return "Agus";
 						break;
 					case 9:
-						return "Sep";
+						return "Sept";
 						break;
 					case 10:
-						return "Okt";
+						return "Oct";
 						break;
 					case 11:
 						return "Nov";
