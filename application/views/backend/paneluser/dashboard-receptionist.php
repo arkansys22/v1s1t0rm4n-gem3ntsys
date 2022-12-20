@@ -13,7 +13,7 @@
     <?php $this->load->view('backend/menu')?>
     <div class="page-wrapper">
       <div class="content report-box container-fluid">
-        <div class="page-header subscribe-head">
+      <div class="page-header subscribe-head">
         <div class="row align-items-center">
         <div class="col">
           <h3 class="page-title">Visitor List</h3>
@@ -43,7 +43,7 @@
                   <h3 class="page-title">Number Of Visitors</h3>
                   <p>Total <span>57</span> Visitor</p>
                 </div>
-                <div class="col-auto">                
+                <div class="col-auto">
                   <a class="btn filter-btn" href="javascript:void(0);" id="filter_search">
                     <i class="fas fa-filter"></i>
                   </a>
