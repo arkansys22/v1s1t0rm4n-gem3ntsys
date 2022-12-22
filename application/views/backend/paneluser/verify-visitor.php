@@ -102,7 +102,7 @@
               <center>
               <div class="card-body pt-0">
                 <br>
-                <img style="height:400px; width:100%;" src="<?php echo base_url()?>bahan/foto_user_detail/<?php echo $rows['user_detail_gambar'] ?>" alt="Profile Cover">
+                <img style="height:300px; width:100%;" src="<?php echo base_url()?>bahan/foto_user_detail/<?php echo $rows['user_detail_gambar'] ?>" alt="Profile Cover">
                 <div class="card-header mb-4">
                   <h5 class="card-title">Selfie Photo Registration</h5>
                 </div>
@@ -115,7 +115,7 @@
               <center>
               <div class="card-body pt-0">
                 <br>
-                <img style="height:200px; width:100%;" src="<?php echo base_url()?>bahan/foto_user_detail/<?php echo $rows['user_detail_idcard'] ?>" alt="Profile Cover">
+                <img style="height:300px; width:100%;" src="<?php echo base_url()?>bahan/foto_user_detail/<?php echo $rows['user_detail_idcard'] ?>" alt="Profile Cover">
                 <div class="card-header mb-4">
                   <h5 class="card-title">Indonesian Identity Card</h5>
                 </div>
