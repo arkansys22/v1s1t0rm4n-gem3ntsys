@@ -13,24 +13,12 @@
     <?php $this->load->view('backend/menu')?>
     <div class="page-wrapper">
       <div class="content container-fluid">
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="card">
-              <div class="card-body pb-0">
-                <?php $attributes = array('class'=>'form-horizontal','role'=>'form');
-                echo form_open_multipart('paneluser/home',$attributes); ?>
-                  <div class="row filter-row">
-                    <div class="col-md-12">
-                      Scan Visitors Barcode
-                    </div>
-                    <div class="col-sm-12 col-md-12">
-                      <div class="form-group">
-                        <input class="form-control" type="text" name="user_detail_idsession">
-                        </div>
-                    </div>
-                  </div>
-                <?php echo form_close(); ?>
-              </div>
+        <div class="page-header subscribe-head">
+          <div class="row align-items-center">
+            <div class="col-auto">
+              <a class="btn  export-btn" href="#" data-bs-toggle="modal" data-bs-target="#add-barcode">
+                <i class="fa fa-qrcode"></i> Scan Barcode
+              </a>
             </div>
           </div>
         </div>
@@ -137,6 +125,25 @@
       <br>
       </div>
     <?php } ?>
+    </div>
+  </div>
+  <div class="modal fade custom-modal" id="add-barcode">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header flex-wrap">
+          <h4 class="modal-title">Scan Barcode Visitor</h4>
+          <button type="button" class="close" data-bs-dismiss="modal"><span>&times;</span></button>
+        </div>
+        <div class="modal-body">
+          <?php $attributes = array('class'=>'form-horizontal','role'=>'form');
+          echo form_open_multipart('paneluser/home',$attributes); ?>
+          <div class="form-group">
+            <label>Scan Barcode</label>
+            <input class="form-control" type="text" name="user_detail_idsession">
+          </div>
+          <?php echo form_close(); ?>
+        </div>
+      </div>
     </div>
   </div>
   <?php $this->load->view('backend/js')?>
