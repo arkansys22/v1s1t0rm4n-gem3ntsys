@@ -12,6 +12,10 @@
     <?php $this->load->view('backend/header')?>
     <?php $this->load->view('backend/menu')?>
     <div class="page-wrapper">
+      <?php if (empty($rows['user_detail_idsession'])){ ?>
+
+      <?php }else{ ?>
+        <?php $user= $this->Crud_m->view_where('user', array('id_user'=> $rows['id_user']))->row_array(); ?>
       <div class="content container-fluid">
         <div class="page-header subscribe-head">
           <div class="row align-items-center">
@@ -22,12 +26,6 @@
             </div>
           </div>
         </div>
-      </div>
-      <?php if (empty($rows['user_detail_idsession'])){ ?>
-
-      <?php }else{ ?>
-        <?php $user= $this->Crud_m->view_where('user', array('id_user'=> $rows['id_user']))->row_array(); ?>
-      <div class="content container-fluid">
         <div class="row">
           <div class="col-lg-4">
             <div class="card">
