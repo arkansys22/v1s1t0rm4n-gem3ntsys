@@ -34,6 +34,8 @@ class Paneluser extends CI_Controller {
 			cek_session_receptionist($this->session->id_session);
 				$data['user'] = $this->Crud_m->view_where('user', array('email'=> $this->session->email))->row_array();
 				$data['active_home'] = "class='active'";
+				$proses = $this->Panel_m->edit('user_detail', array('user_detail_idsession' => $this->input->post('user_detail_idsession')))->row_array();
+				$data = array('rows' => $proses);
 				$this->load->view('backend/paneluser/verify-visitor',$data);
 		}else{
 			redirect(base_url());

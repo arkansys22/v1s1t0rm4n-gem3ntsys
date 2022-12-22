@@ -17,25 +17,33 @@
           <div class="col-sm-12">
             <div class="card">
               <div class="card-body pb-0">
-                <form action="#" method="post">
+                <?php $attributes = array('class'=>'form-horizontal','role'=>'form');
+                echo form_open_multipart('paneluser/home',$attributes); ?>
                   <div class="row filter-row">
-                    <div class="col-sm-6 col-md-6">
+                    <div class="col-md-12">
+                      Scan Visitors Barcode
+                    </div>
+                    <div class="col-sm-12 col-md-12">
                       <div class="form-group">
-                        <input class="form-control" type="text">
+                        <input class="form-control" type="text" name="user_detail_idsession">
                         </div>
                     </div>
-                    <div class="col-sm-6 col-md-6">
+                    <div class="col-sm-3 col-md-3">
                       <div class="form-group">
-                        <button class="btn btn-primary btn-block" type="submit">Submit</button>
+                        <button class="btn btn-primary btn-block" name="submit" type="submit">Submit</button>
                       </div>
                     </div>
                   </div>
-                </form>
+                <?php echo form_close(); ?>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <?php if (empty($rows['user_detail_idsession'])){ ?>
+
+      <?php }else{ ?>
+        <?php $user= $this->Crud_m->view_where('user', array('id_user'=> $rows['id_user']))->row_array(); ?>
       <div class="content container-fluid">
         <div class="row">
           <div class="col-lg-6">
@@ -48,58 +56,47 @@
                 </div>
               <ul class="list-unstyled mb-0">
                 <li class="py-0">
-                  <small class="text-dark">Name</small>
+                  <small class="text-dark">Full Name</small>
                 </li>
                 <li>
-                  Damon Cohn
+                  <?php echo $user['nama'] ?>
                 </li>
                 <li class="pt-2 pb-0">
                   <small class="text-dark">Phone Number</small>
                 </li>
                 <li>
-                  081388314678
+                  <?php echo $rows['user_detail_notlp'] ?>
                 </li>
                 <li class="pt-2 pb-0">
-                  <small class="text-dark">Email Address</small>
+                  <small class="text-dark">Designation</small>
                 </li>
                 <li>
-                  email@gmail.com
-                </li>
-                <li class="pt-2 pb-0">
-                  <small class="text-dark">Contact To</small>
-                </li>
-                <li>
-                  Mr.Name
+                  <?php echo $rows['user_detail_contactto'] ?>
                 </li>
                 <li class="pt-2 pb-0">
                   <small class="text-dark">Tenant</small>
                 </li>
                 <li>
-                  PT. Name
+                  <?php $tenant= $this->Crud_m->view_where('user_tenant', array('user_tenant_id'=> $rows['user_tenant_id']))->row_array(); ?>
+                  <?php echo $tenant['user_tenant_nama'] ?>
                 </li>
                 <li class="pt-2 pb-0">
                   <small class="text-dark">Floor Tenant</small>
                 </li>
                 <li>
-                  Floor 1
+                  <?php echo $rows['user_detail_floor'] ?>
                 </li>
                 <li class="pt-2 pb-0">
-                  <small class="text-dark">Visit Date From</small>
+                  <small class="text-dark">Visit Date</small>
                 </li>
                 <li>
-                  14 Desember 2022
+                  <?php echo $rows['user_detail_vdatefrom'] ?>
                 </li>
                 <li class="pt-2 pb-0">
-                  <small class="text-dark">Visit Date End</small>
+                  <small class="text-dark">Purpose Of The Visit</small>
                 </li>
                 <li>
-                  14 Desember 2022
-                </li>
-                <li class="pt-2 pb-0">
-                  <small class="text-dark">Reason</small>
-                </li>
-                <li>
-                  Bussiness Presentation
+                  <?php echo $rows['user_detail_reason'] ?>
                 </li>
               </ul>
               </div>
@@ -110,14 +107,14 @@
               <center>
               <div class="card-body pt-0">
                 <br>
-                <img class="" src="<?php echo base_url()?>bahan/backend/template/img/profiles/avatar-07.jpg" alt="Profile Cover">
+                <img style="height:400px; width:100%;" src="<?php echo base_url()?>bahan/backend/template/img/profiles/avatar-07.jpg" alt="Profile Cover">
                 <div class="card-header mb-4">
                   <h5 class="card-title">Selfie Photo Registration</h5>
                 </div>
               </div>
               <div class="card-body pt-0">
                 <br>
-                <img class="" src="<?php echo base_url()?>bahan/frontend/image/ktp.png" alt="Profile Cover">
+                <img style="height:200px; width:100%;" src="<?php echo base_url()?>bahan/frontend/image/ktp.png" alt="Profile Cover">
                 <div class="card-header mb-4">
                   <h5 class="card-title">Indonesian Identity Card</h5>
                 </div>
@@ -127,34 +124,18 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-lg-12">
-            <button type="submit" name="submit" class="btn btn-primary btn-block">APPROVED</button>
+          <div class="col-lg-3 col-sm-6">
+            <a href="#" type="button" class="btn btn-warning btn-block" style="color:white;">INVALID</a>
           </div>
+          <div class="col-lg-3 col-sm-6">
+            <a href="#" type="button" class="btn btn-success btn-block">APPROVED</a>
+          </div>
+
         </div>
       <br>
       <br>
       </div>
-    </div>
-  </div>
-  <div class="modal fade custom-modal" id="add-barcode">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header flex-wrap">
-          <h4 class="modal-title">Scan Barcode Visitor</h4>
-          <button type="button" class="close" data-bs-dismiss="modal"><span>&times;</span></button>
-        </div>
-        <div class="modal-body">
-          <form>
-          <div class="form-group">
-            <label>Scan Barcode</label>
-            <input type="text" name="barcode" class="form-control">
-          </div>
-          <div class="mt-4">
-            <button type="submit" name="submit" class="btn btn-primary btn-block">Submit</button>
-          </div>
-          </form>
-        </div>
-      </div>
+    <?php } ?>
     </div>
   </div>
   <?php $this->load->view('backend/js')?>
