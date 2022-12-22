@@ -5,6 +5,7 @@
   <title>VMS Panel | Verify Visitor</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   	<?php $this->load->view('backend/css')?>
+
 </head>
 <body>
 
@@ -17,15 +18,16 @@
           <div class="col-sm-12">
             <div class="card">
               <div class="card-body pb-0">
-                <?php $attributes = array('class'=>'form-horizontal','role'=>'form');
+                <?php $attributes = array('class'=>'form-horizontal','role'=>'form','id'=>'formID');
                 echo form_open_multipart('paneluser/home',$attributes); ?>
+                <script type="text/javascript">document.formID.inputID.focus();</script>
                   <div class="row filter-row">
                     <div class="col-md-12">
                       Scan Visitors Barcode
                     </div>
                     <div class="col-sm-12 col-md-12">
                       <div class="form-group">
-                        <input class="form-control" type="text" name="user_detail_idsession">
+                        <input class="form-control" type="text" id="inputID"  name="user_detail_idsession" autofocus>
                         </div>
                     </div>
                   </div>
