@@ -28,11 +28,6 @@
                         <input class="form-control" type="text" name="user_detail_idsession">
                         </div>
                     </div>
-                    <div class="col-sm-3 col-md-3">
-                      <div class="form-group">
-                        <button class="btn btn-primary btn-block" name="submit" type="submit">Submit</button>
-                      </div>
-                    </div>
                   </div>
                 <?php echo form_close(); ?>
               </div>
@@ -46,7 +41,7 @@
         <?php $user= $this->Crud_m->view_where('user', array('id_user'=> $rows['id_user']))->row_array(); ?>
       <div class="content container-fluid">
         <div class="row">
-          <div class="col-lg-6">
+          <div class="col-lg-4">
             <div class="card">
               <div class="card-body pt-0">
                 <div class="card-header mb-4">
@@ -102,7 +97,7 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-6 d-flex">
+          <div class="col-lg-4 d-flex">
             <div class="card w-100">
               <center>
               <div class="card-body pt-0">
@@ -112,6 +107,12 @@
                   <h5 class="card-title">Selfie Photo Registration</h5>
                 </div>
               </div>
+            </center>
+            </div>
+          </div>
+          <div class="col-lg-4 d-flex">
+            <div class="card w-100">
+              <center>
               <div class="card-body pt-0">
                 <br>
                 <img style="height:200px; width:100%;" src="<?php echo base_url()?>bahan/foto_user_detail/<?php echo $rows['user_detail_idcard'] ?>" alt="Profile Cover">
