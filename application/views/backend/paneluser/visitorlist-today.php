@@ -32,8 +32,7 @@
           </div>
           <div class="subscribe-employe users-list">
           <ul>
-            <li class="active"><a href="#">Today</a></li>
-            <li><a href="#">This Month</a></li>
+            <li class="active"><a href="#">This Month</a></li>
             <li><a href="#">This Year</a></li>
             <li><a href="#">All Visitor</a></li>
           </ul>

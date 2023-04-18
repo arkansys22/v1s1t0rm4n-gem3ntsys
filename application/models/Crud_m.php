@@ -192,6 +192,18 @@ class Crud_m extends CI_model{
         return $this->db->get()->result_array();
   }
 
+  public function view_join_where_ordering_user_month($table1,$table2,$field,$field2,$data,$order,$ordering)
+  {
+    $this->db->select('*');
+    $this->db->from($table1);    
+    $this->db->join($table2, $table1.'.'.$field.'='.$table2.'.'.$field2);
+
+      $this->db->where($data);
+      $this->db->where('user_post_tanggal BETWEEN '. date("'20y-m-01'") .' AND '. date("'20y-m-31'"));
+      $this->db->order_by($order,$ordering);
+        return $this->db->get()->result_array();
+  }
+
 
   public function view_join_ordering($table1,$table2,$field,$order,$ordering)
   {
