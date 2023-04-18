@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
 <title>VMS Panel | Dashboard Administrator</title>
 <?php $this->load->view('backend/css')?>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.25/webcam.min.js"></script>
 </head>
 <body>
 
@@ -104,6 +105,26 @@
                   <center>
                   <div class="card-body pt-0">
                     <br>
+                    <div id="my_camera"></div>
+                    <br/>
+                    
+                    <div id="results">Your captured image will appear here...</div>
+                    <div class="card-header mb-4">
+                      <input type=button value="Take Snapshot" onClick="take_snapshot()">
+                      <input type="hidden" name="image" class="image-tag">
+                      <h5 class="card-title">Selfie Photo Confirm</h5>
+                    </div>
+                    
+                    
+                  </div>
+                </center>
+                </div>
+              </div>
+              <div class="col-lg-4 d-flex">
+                <div class="card w-100">
+                  <center>
+                  <div class="card-body pt-0">
+                    <br>
                     <?php if ( empty($user_detail['user_detail_gambar'])) { ?> 
                       <img style="height:400px; width:100%;" src="<?php echo base_url()?>bahan/backend/foto/idcard-default.png">
                     <?php }else{?>
@@ -135,7 +156,23 @@
     </div>
 
 
-   
+<script language="JavaScript">
+    Webcam.set({
+        width: 250,
+        height: 200,
+        image_format: 'jpeg',
+        jpeg_quality: 90
+    });
+  
+    Webcam.attach( '#my_camera' );
+  
+    function take_snapshot() {
+        Webcam.snap( function(data_uri) {
+            $(".image-tag").val(data_uri);
+            document.getElementById('results').innerHTML = '<img src="'+data_uri+'"/>';
+        } );
+    }
+</script>
     
  <?php $this->load->view('backend/js')?>
 </body>
