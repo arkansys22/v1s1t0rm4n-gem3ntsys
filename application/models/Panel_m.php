@@ -38,6 +38,32 @@ class Panel_m extends CI_Model {
       return $this->db->get($table);
   }
 
+  public function view_where_this_month($table,$data){      
+      $this->db->where($data);
+      $this->db->where('user_post_tanggal BETWEEN '. date("'20y-m-01'") .' AND '. date("'20y-m-31'"));
+      return $this->db->get($table);
+  }
+
+  public function view_where_this_year($table,$data){      
+      $this->db->where($data);
+      $this->db->where('user_post_tanggal BETWEEN '. date("'20y-01-01'") .' AND '. date("'20y-12-31'"));
+      return $this->db->get($table);
+  }
+
+  public function view_where_user23($table){      
+    
+      $this->db->where('level BETWEEN '. "2" .' AND '. "3");
+      return $this->db->get($table);
+  }
+
+  public function view_where_this_today($table,$data){
+  
+
+      $this->db->where($data);
+      $this->db->where('user_post_tanggal',date('20y-m-d'));    
+      return $this->db->get($table);
+  }
+
   public function login($username, $password){
    // Validate
    $this->db->where('username', $username);

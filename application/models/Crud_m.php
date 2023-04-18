@@ -171,6 +171,27 @@ class Crud_m extends CI_model{
         return $this->db->get()->result_array();
   }
 
+  public function view_join_where_ordering_user23($table1,$table2,$field,$field2,$data,$order,$ordering)
+  {
+    $this->db->select('*');
+    $this->db->from($table1);
+    $this->db->where('level BETWEEN '. "2" .' AND '. "3");
+    $this->db->join($table2, $table1.'.'.$field.'='.$table2.'.'.$field2);
+      $this->db->where($data);
+      $this->db->order_by($order,$ordering);
+        return $this->db->get()->result_array();
+  }
+
+  public function view_join_where_ordering_user4($table1,$table2,$field,$field2,$data,$order,$ordering)
+  {
+    $this->db->select('*');
+    $this->db->from($table1);    
+    $this->db->join($table2, $table1.'.'.$field.'='.$table2.'.'.$field2);
+      $this->db->where($data);
+      $this->db->order_by($order,$ordering);
+        return $this->db->get()->result_array();
+  }
+
 
   public function view_join_ordering($table1,$table2,$field,$order,$ordering)
   {
