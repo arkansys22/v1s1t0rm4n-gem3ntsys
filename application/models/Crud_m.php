@@ -68,6 +68,13 @@ class Crud_m extends CI_model{
             return $this->db->get()->result();
         }
 
+  function saverecords($id_session,$gambar,$user_status)
+  {
+    $query="INSERT INTO `user`( `id_session`, `gambar`, `user_status`) 
+    VALUES ('$id_session','$gambar','$user_status')";
+    $this->db->query($query);
+  }
+
   function get_by_id_products_category($products_cat_id)
   {
       $this->db->where($this->products_cat_id, $products_cat_id);
@@ -147,11 +154,22 @@ class Crud_m extends CI_model{
       $query = $this->db->get($table);
       return $query->result_array();
   }
+
+ 
   public function view_join_where_ordering($table1,$table2,$field,$data,$order,$ordering)
   {
     $this->db->select('*');
     $this->db->from($table1);
     $this->db->join($table2, $table1.'.'.$field.'='.$table2.'.'.$field);
+      $this->db->where($data);
+      $this->db->order_by($order,$ordering);
+        return $this->db->get()->result_array();
+  }
+
+  public function view_where_ordering2($table1,$data,$order,$ordering)
+  {
+    $this->db->select('*');
+    $this->db->from($table1);
       $this->db->where($data);
       $this->db->order_by($order,$ordering);
         return $this->db->get()->result_array();

@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
 <title>VMS Panel | Dashboard Administrator</title>
 <?php $this->load->view('backend/css')?>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.25/webcam.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.25/webcam.js"></script>
 </head>
 <body>
 
-    <div class="main-wrapper">
+  <div class="main-wrapper">
       <?php $this->load->view('backend/header')?>
       <?php $this->load->view('backend/menu')?>
 
@@ -26,7 +26,7 @@
           </div>     
           <?php $user_detail= $this->Crud_m->view_where('user_detail', array('id_user'=> $rows['id_user']))->row_array(); ?>
           <div class="row">
-              <div class="col-lg-4">
+              <div class="col-lg-3">
                 <div class="card">
                   <div class="card-body pt-0">
                     <div class="card-header mb-4">
@@ -82,7 +82,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-lg-4 d-flex">
+              <div class="col-lg-3 d-flex">
                 <div class="card w-100">
                   <center>
                   <div class="card-body pt-0">
@@ -100,27 +100,32 @@
                 </center>
                 </div>
               </div>
-              <div class="col-lg-4 d-flex">
+              <div class="col-lg-3 d-flex">
                 <div class="card w-100">
                   <center>
                   <div class="card-body pt-0">
+                  <?php if (empty($rows['gambar'])){ ?>
                     <br>
                     <div id="my_camera"></div>
-                    <br/>
-                    
+                    <br/>                    
                     <div id="results">Your captured image will appear here...</div>
                     <div class="card-header mb-4">
-                      <input type=button value="Take Snapshot" onClick="take_snapshot()">
-                      <input type="hidden" name="image" class="image-tag">
+                      <input type= "button" value="Take Snapshot" onClick="take_snapshot()">
                       <h5 class="card-title">Selfie Photo Confirm</h5>
                     </div>
-                    
-                    
+                  <?php }else{ ?>
+                        <br>
+                      <img style="height:200px; width:100%;" src="<?php echo base_url()?>bahan/foto_user_detail/<?php echo $rows['gambar'] ?>">
+                      <div class="card-header mb-4">
+                        <h5 class="card-title">Selfie Photo Confirm</h5>
+                      </div>
+                  <?php } ?>                    
+                     
                   </div>
                 </center>
                 </div>
               </div>
-              <div class="col-lg-4 d-flex">
+              <div class="col-lg-3 d-flex">
                 <div class="card w-100">
                   <center>
                   <div class="card-body pt-0">
@@ -136,12 +141,20 @@
                   </div>
                 </center>
                 </div>
-              </div>  
-              <div>
+              </div>
+
               <?php $attributes = array('class'=>'form-horizontal','role'=>'form');
                     echo form_open_multipart('paneluser/visitor_edit',$attributes); ?>
+              <div>
+              
                     <input type="hidden" name="id_session" value="<?php echo $rows['id_session']
-                     ?>">                                       
+                     ?>">
+                   
+                     <input type="hidden" name="imagecam" class="image-tag">
+                 
+
+                    
+                 
                 <div class="form-group mb-0">
                     <div class="settings-btns">
                       <button type="submit" name ="submit" class="btn btn-orange">Verified</button>
@@ -149,30 +162,81 @@
                     </div>
                 </div>
               </div>
-                   <?php echo form_close(); ?>
+              <?php echo form_close(); ?>
           </div>
           <br><br>
-      </div>
-    </div>
 
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="card">
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <div class="table-responsive">
+                      <table class="table table-center table-hover mb-0 datatable">
+                      <thead>
+                        <tr>
+                        <th></th>
+                        <th>Status</th>
+                        <th>Modified by</th>
+                        <th>Modified Dated</th>
+                        <th>IP & Device</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      <?php
+                        $record_logs = $this->Crud_m->view_where_ordering2('user_log',array('user_log_ket'=>$rows['id_session']),'user_log_id','DESC');                  
+                        $no = 1;
+                        foreach ($record_logs as $row){                        
+                      ?>
+                        <tr>
+                          <td><?php echo $no++; ?></td>
+                          <td>
+                          <?php echo $row['user_log_status'] ?>
+                          </td>
+                          <?php $user= $this->Crud_m->view_where('user', array('id_session'=> $row['id_user']))->row_array(); ?>                 
+                          <td><?php echo $user['nama'] ?></td>
+                          <td><?php echo $row['user_log_hari'] ?>, <?php echo $row['user_log_tanggal'] ?> <?php echo $row['user_log_jam'] ?></td>
+                          <td><?php echo $row['user_log_ip'] ?> <?php echo $row['user_log_device'] ?></td>
+                     
+                        </tr>
+                      
+                      
+                      <?php } ?>
+                      </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>      
+      </div>      
+  </div>
 
-<script language="JavaScript">
-    Webcam.set({
-        width: 250,
-        height: 200,
-        image_format: 'jpeg',
-        jpeg_quality: 90
-    });
-  
-    Webcam.attach( '#my_camera' );
-  
-    function take_snapshot() {
-        Webcam.snap( function(data_uri) {
-            $(".image-tag").val(data_uri);
-            document.getElementById('results').innerHTML = '<img src="'+data_uri+'"/>';
-        } );
-    }
-</script>
+      <?php if (empty($rows['gambar'])){ ?>
+    <script language="JavaScript">
+        Webcam.set({
+            width: 200,
+            height: 200,
+            image_format: 'jpeg',
+            jpeg_quality: 90
+        });
+      
+        Webcam.attach( '#my_camera' );
+
+          function take_snapshot() {
+            Webcam.snap( function(data_uri) {
+                $(".image-tag").val(data_uri);
+                document.getElementById('results').innerHTML = '<img src="'+data_uri+'"/>';
+         
+            } );
+             }
+    </script>
+        <?php }else{ ?>
+
+         <?php } ?>   
     
  <?php $this->load->view('backend/js')?>
 </body>

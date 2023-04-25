@@ -59,6 +59,20 @@
                         <?php } ?>
                         </select>
                         <small><?php echo form_error('level'); ?></small>
+                      </div>
+
+                      <?php $user_detail= $this->Crud_m->view_where('user_detail', array('id_session'=> $rows['id_session']))->row_array(); ?>
+                      <div class="form-group">
+                        <label>Tenant Name <span class="star-red">*</span></label>
+                        <select name='user_tenant_id_session' class="form-control select2" style="width: 100%;">
+                            <?php foreach ($records_tenant as $row) {
+                              if ($user_detail['user_tenant_id_session'] == $row['user_tenant_id_session']){
+                                echo"<option selected='selected' value='$row[user_tenant_id_session]'>$row[user_tenant_nama]</option>";
+                              }else{
+                                echo"<option value='$row[user_tenant_id_session]'>$row[user_tenant_nama]</option>";
+                           }
+                         } ?>
+                        </select>
                       </div>                        
                       <div>                       
                         <div class="form-group mb-0">
@@ -75,63 +89,57 @@
             </div>        
           </div>
 
-      </div>
-    </div>
-
-
-    <div class="modal fade custom-modal" id="add-user">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header flex-wrap">
-            <div class="text-center w-100 mb-3">
-            <img src="assets/img/logo-small.png" alt="">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="card">
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <div class="table-responsive">
+                      <table class="table table-center table-hover mb-0 datatable">
+                      <thead>
+                        <tr>
+                        <th></th>
+                        <th>Status</th>
+                        <th>Modified by</th>
+                        <th>Modified Dated</th>
+                        <th>IP & Device</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      <?php
+                        $record_logs = $this->Crud_m->view_where_ordering2('user_log',array('user_log_ket'=>$rows['id_session']),'user_log_id','DESC');                  
+                        $no = 1;
+                        foreach ($record_logs as $row){                        
+                      ?>
+                        <tr>
+                          <td><?php echo $no++; ?></td>
+                          <td>
+                          <?php echo $row['user_log_status'] ?>
+                          </td>
+                          <?php $user= $this->Crud_m->view_where('user', array('id_session'=> $row['id_user']))->row_array(); ?>                 
+                          <td><?php echo $user['nama'] ?></td>
+                          <td><?php echo $row['user_log_hari'] ?>, <?php echo $row['user_log_tanggal'] ?> <?php echo $row['user_log_jam'] ?></td>
+                          <td><?php echo $row['user_log_ip'] ?> <?php echo $row['user_log_device'] ?></td>
+                     
+                        </tr>
+                      
+                      
+                      <?php } ?>
+                      </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <h4 class="modal-title">Add New User</h4>
-            <button type="button" class="close" data-bs-dismiss="modal"><span>&times;</span></button>
           </div>
-          <div class="modal-body">
-            <?php $attributes = array('class'=>'form-horizontal','role'=>'form');
-            echo form_open_multipart('paneluser/usersettings',$attributes); ?>
-            
-            <div class="form-group">
-              <label>Full Name</label>
-              <input type="text" class="form-control floating" name="nama" value="<?php echo set_value('nama') ?>">
-              <small><?php echo form_error('nama'); ?></small>
-            </div>
-            <div class="form-group">
-              <label>Email</label>
-              <input type="email" class="form-control floating" name="email" value="<?php echo set_value('email') ?>">
-              <small><?php echo form_error('email'); ?></small>
-            </div>
-            <div class="form-group">
-              <label>Password</label>
-              <input type="password" class="form-control floating" name="password" value="<?php echo set_value('password') ?>">
-              <small><?php echo form_error('password'); ?></small>
-            </div>
-            <div class="form-group">
-              <label>Confirm Password</label>
-              <input type="password" class="form-control floating" name="password2" value="<?php echo set_value('password2') ?>">
-              <small><?php echo form_error('password2'); ?></small>
-            </div>
-            <div class="form-group">
-            <label>Level</label>
-            <select class="form-control form-select" name="level">           
-            <option></option>
-            <option value="2">Administrator</option>
-            <option value="3">Tenant</option>
-            </select>
-            <small><?php echo form_error('level'); ?></small>
-            </div>
-            <div class="mt-4">
-            <button class="btn btn-primary btn-block btn-lg login-btn" name="submit" type="submit">Submit</button>
-            </div>
-            </form>
-          </div>
+
         </div>
       </div>
     </div>
-   
-    
+
+
+        
  <?php $this->load->view('backend/js')?>
 </body>
 </html>

@@ -16,24 +16,16 @@
       <div class="page-wrapper">
         <div class="content container-fluid">
 
-        <div class="page-header">
-          <div class="row">
-            <div class="col-sm-6">
-            <h3 class="page-title">Settings</h3>       
-            </div>
-          </div>
-        </div>
-
         <div class="settings-menu-links">
           <ul class="nav nav-tabs menu-tabs">
             <li class="nav-item ">
-              <a class="nav-link" href="<?php echo base_url() ?>paneluser/cnfig/#">General Settings</a>
+              <a class="nav-link" href="<?php echo base_url() ?>paneluser/cnfig/#">Profile Settings</a>
             </li>
             <li class="nav-item active">
               <a class="nav-link" href="<?php echo base_url() ?>paneluser/usersettings/#">User Settings</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="<?php echo base_url() ?>paneluser/cnfig/#">Others</a>
+              <a class="nav-link" href="<?php echo base_url() ?>paneluser/tenantssetting/#">Tenant Settings</a>
             </li>
           </ul>
         </div>
@@ -46,10 +38,8 @@
 
         <div class="subscribe-employe users-list">
           <ul>
-            <li class="active"><a href="#">All Users </a></li>
-            <li><a href="#">Active Users</a></li>
+            <li class="active"><a href="#">Active Users </a></li>
             <li><a href="#">Inactive Users</a></li>
-            <li><a href="#">Suspended</a></li>
           </ul>
         </div>
 
@@ -150,6 +140,18 @@
             <option value="2">Administrator</option>
             <option value="3">Tenant</option>
             </select>
+            <small><?php echo form_error('level'); ?></small>
+            </div>
+            <div class="form-group">
+            <label>Tenant</label>
+            <select class="form-control form-select" name="user_tenant_id_session">           
+            <option></option>
+            <?php foreach ($records_tenant as $row) { ?>
+            <option value="<?php echo $row['user_tenant_id_session'] ?>"> <?php echo $row['user_tenant_nama'] ?>
+            </option>
+            <?php } ?>
+            </select>
+
             <small><?php echo form_error('level'); ?></small>
             </div>
             <div class="mt-4">
