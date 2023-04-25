@@ -143,6 +143,7 @@
             <small><?php echo form_error('level'); ?></small>
             </div>
             <div class="form-group">
+            <?php $records_tenant = $this->Crud_m->view_where_ordering('user_tenant',array('user_tenant_status'=>'Active'),'user_tenant_id','ASC'); ?>
             <label>Tenant</label>
             <select class="form-control form-select" name="user_tenant_id_session">           
             <option></option>

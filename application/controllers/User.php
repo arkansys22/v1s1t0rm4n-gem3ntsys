@@ -22,6 +22,8 @@ class User extends CI_Controller {
 		$this->form_validation->set_rules('user_detail_reason','','required', array('required'=>'Enter the reason for your visit'));
 
 		if($this->form_validation->run() === FALSE){
+			$data['records_tenant'] = $this->Crud_m->view_where_ordering('user_tenant',array('user_tenant_status'=>'Active'),'user_tenant_id','ASC');
+			$data['records_tenant_floor'] = $this->Crud_m->view_ordering('user_tenant_floor','user_tenant_floor_id','ASC');
 				$this->load->view('frontend/user/visitors-register',$data);
 		}else{
 
@@ -89,16 +91,16 @@ class User extends CI_Controller {
 									'user_post_jam'=>date('H:i:s'),
 									'id_session'=>md5($this->input->post('nama')).'-'.date('YmdHis'),
 									'nama' => $nama);
-					$id_pelanggan = $this->Crud_m->tambah_user($data_user);
+					$id_pelanggan = $this->Crud_m->insert('user',$data_user);
 
 
 					$qrcode= md5($id_pelanggan).'-'.date('YmdHis');
 					$image_name=$qrcode.'.png';
 					$vdatefrom = $this->input->post('user_detail_vdatefrom');
 					$data_user_detail = array(
-									'id_user' => $id_pelanggan,
+									'id_session'=>md5($this->input->post('nama')).'-'.date('YmdHis'),	
 									'user_detail_notlp' => $this->input->post('user_detail_notlp'),
-									'user_tenant_id' => $this->input->post('user_tenant_id'),
+									'user_tenant_id_session' => $this->input->post('user_tenant_id'),
 									'user_detail_floor' => $this->input->post('user_detail_floor'),
 									'user_detail_reason' => $this->input->post('user_detail_reason'),
 									'user_detail_contactto' => $this->input->post('user_detail_contactto'),

@@ -70,8 +70,10 @@ echo form_open_multipart('regist-visitor',$attributes); ?>
     <div class="form-group form-focus">
       <select name="user_tenant_id" class="form-control select-level" id="business-type">
       <option value="" selected>Select Tenant</option>
-      <option value="1">PT. Sukses Berangin angin</option>
-      <option value="2">PT. Makmur Sedekah</option>
+      <?php foreach ($records_tenant as $row) { ?>
+            <option value="<?php echo $row['user_tenant_id_session'] ?>"> <?php echo $row['user_tenant_nama'] ?>
+            </option>
+            <?php } ?>
       </select>
       <label class="focus-label">Tenant</label>
     </div>
@@ -81,8 +83,10 @@ echo form_open_multipart('regist-visitor',$attributes); ?>
     <div class="form-group form-focus">
       <select name="user_detail_floor" class="form-control select-level" id="business-type">
       <option value="" selected>Select Floor Tenant</option>
-      <option value="Lantai 1">Lantai 1</option>
-      <option value="Lantai 2">Lantai 2</option>
+      <?php foreach ($records_tenant_floor as $row) { ?>
+            <option value="<?php echo $row['user_tenant_floor_id'] ?>"> <?php echo $row['user_tenant_floor_name'] ?>
+            </option>
+            <?php } ?>
       </select>
       <label class="focus-label">Floor Tenant</label>
     </div>
