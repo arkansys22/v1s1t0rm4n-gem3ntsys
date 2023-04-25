@@ -68,7 +68,7 @@
                         <?=$row['nama']?>
                         </td>                        
                         <td><?=$row['user_detail_contactto']?></td>
-                        <?php $user_tenant= $this->Crud_m->view_where('user_tenant', array('user_tenant_id'=> $row['user_tenant_id']))->row_array(); ?>
+                        <?php $user_tenant= $this->Crud_m->view_where('user_tenant', array('user_tenant_id_session'=> $row['user_tenant_id_session']))->row_array(); ?>
                         <td><?=$user_tenant['user_tenant_nama']?></td>
                         <td><?=$row['user_detail_vdatefrom']?></td>
                         <?php $user_status= $this->Crud_m->view_where('user_status', array('user_status_id'=> $row['user_status']))->row_array(); ?>
