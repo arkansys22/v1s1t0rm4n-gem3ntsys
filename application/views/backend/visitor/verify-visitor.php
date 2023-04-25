@@ -1,15 +1,13 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>VMS Panel | Verify Visitor</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  	<?php $this->load->view('backend/css')?>
-
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+<title>VMS Panel | Dashboard Administrator</title>
+<?php $this->load->view('backend/css')?>
 </head>
 <body>
-
-  <div class="main-wrapper">
+ <div class="main-wrapper">
     <?php $this->load->view('backend/header')?>
     <?php $this->load->view('backend/menu')?>
     <div class="page-wrapper">
@@ -140,7 +138,9 @@
       </div>
     <?php } ?>
     </div>
-  </div>
-  <?php $this->load->view('backend/js')?>
+  </div>    
+   
+    
+ <?php $this->load->view('backend/js')?>
 </body>
 </html>

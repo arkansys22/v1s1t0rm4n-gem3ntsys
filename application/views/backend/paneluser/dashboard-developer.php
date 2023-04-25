@@ -12,6 +12,8 @@
 <?php $thismonth = $this->Panel_m->view_where_this_month('user',array('user_status'=>'3'))->num_rows(); ?>
 <?php $thisyear = $this->Panel_m->view_where_this_year('user',array('user_status'=>'3'))->num_rows(); ?>
 <?php $users= $this->Crud_m->view_where('user', array('email'=> $this->session->email))->row_array(); ?>
+<?php $users_detail= $this->Crud_m->view_where('user_detail', array('id_session'=> $users['id_session']))->row_array(); ?>
+<?php $users_tenant= $this->Crud_m->view_where('user_tenant', array('user_tenant_id_session'=> $users_detail['user_tenant_id_session']))->row_array(); ?>
 <body>
 
     <div class="main-wrapper">
@@ -117,7 +119,7 @@
                   </div>
                   <div class="account-balance">
                     <p>Name Of Company</p>
-                    <h6>PT. Nadi Sukses Berkarya</h6>
+                    <h6><?php echo $users_tenant['user_tenant_nama'];?></h6>
                   </div>              
                 </div>
               </div>
