@@ -17,7 +17,7 @@
             <div class="card">
               <div class="card-body pb-0">
                 <?php $attributes = array('class'=>'form-horizontal','role'=>'form','id'=>'formID');
-                echo form_open_multipart('paneluser/home',$attributes); ?>
+                echo form_open_multipart('paneluser/verify_visitor',$attributes); ?>
                 <script type="text/javascript">document.formID.inputID.focus();</script>
                   <div class="row filter-row">
                     <div class="col-md-12">
@@ -38,7 +38,7 @@
       <?php if (empty($rows['user_detail_idsession'])){ ?>
 
       <?php }else{ ?>
-        <?php $user= $this->Crud_m->view_where('user', array('id_user'=> $rows['id_user']))->row_array(); ?>
+        <?php $user= $this->Crud_m->view_where('user', array('id_session'=> $rows['id_session']))->row_array(); ?>
       <div class="content container-fluid">
         <div class="row">
           <div class="col-lg-4">
