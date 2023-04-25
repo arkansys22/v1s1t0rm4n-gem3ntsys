@@ -24,7 +24,7 @@
               </div>
             </div>
           </div>     
-          <?php $user_detail= $this->Crud_m->view_where('user_detail', array('id_user'=> $rows['id_user']))->row_array(); ?>
+          <?php $user_detail= $this->Crud_m->view_where('user_detail', array('id_session'=> $rows['id_session']))->row_array(); ?>
           <div class="row">
               <div class="col-lg-3">
                 <div class="card">
