@@ -50,8 +50,8 @@
               <div class="card-body pt-0">
                 <div class="card-header mb-4">
                   <h5 class="card-title d-flex justify-content-between">
-                    <span>Visit Registration Data</span>
-                    <small><?php echo $user_status['user_status_nama'] ?></small>
+                    <span>Visit Registration Data</span><p>
+                    <small><?php echo $user_status['user_status_nama'] ?></small></p>
                   </h5>
                 </div>
               <ul class="list-unstyled mb-0">
