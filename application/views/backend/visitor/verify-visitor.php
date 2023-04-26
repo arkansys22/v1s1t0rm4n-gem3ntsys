@@ -128,7 +128,7 @@
                     </div>
                   <?php }else{ ?>
                         <br>
-                      <img style="height:200px; width:100%;" src="<?php echo base_url()?>bahan/foto_user_detail/<?php echo $rows['gambar'] ?>">
+                      <img style="height:200px; width:100%;" src="<?php echo base_url()?>bahan/foto_user_detail/<?php echo $user['gambar'] ?>">
                       <div class="card-header mb-4">
                         <h5 class="card-title">Selfie Photo Confirm</h5>
                       </div>
