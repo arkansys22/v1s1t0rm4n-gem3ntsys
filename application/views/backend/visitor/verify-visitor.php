@@ -174,7 +174,7 @@
                     <div class="form-group mb-0">
                       <div class="settings-btns">
                         <button type="submit" name ="submit" class="btn btn-success">APPROVE</button>
-                        <a href="#" class="btn btn-warning">INVALID</a>
+                        <a href="<?php echo base_url()?>paneluser/visitor_invalid/<?=$rows['id_session']?>" class="btn btn-warning">INVALID</a>
                       </div>
                     </div>
                 </div>

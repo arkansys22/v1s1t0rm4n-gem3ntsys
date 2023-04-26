@@ -916,6 +916,45 @@ class Paneluser extends CI_Controller {
 			$this->load->view('backend/visitor/visitoredit', $data);
 		}
 	}
+
+	public function visitor_invalid()
+	{
+			
+			if ($this->agent->is_browser())
+					{
+								$agent = 'Desktop ' .$this->agent->browser().' '.$this->agent->version();
+					}
+					elseif ($this->agent->is_robot())
+					{
+								$agent = $this->agent->robot();
+					}
+					elseif ($this->agent->is_mobile())
+					{
+								$agent = 'Mobile' .$this->agent->mobile().''.$this->agent->version();
+					}
+					else
+					{
+								$agent = 'Unidentified User Agent';
+					}
+
+			$data = array('user_status'=>'4');
+			$where = array('id_session' => $this->uri->segment(3));
+			$this->db->update('user', $data, $where);
+			$log_file = array(
+									'id_user' => $this->session->id_session,
+									'user_log_ket' =>$this->uri->segment(3),
+									'user_log_status'=>'Invalid Visitor',								
+									'user_log_hari'=>hari_ini(date('w')),
+									'user_log_tanggal'=>date('Y-m-d'),
+									'user_log_jam'=>date('H:i:s'),
+									'user_log_device'=> $agent,
+									'user_log_ip' => $this->input->ip_address()
+								);							
+
+								$this->Crud_m->insert('user_log',$log_file);	
+
+			redirect('paneluser/tenantssetting');
+	}
 	public function save_visitor()
 	{
 
