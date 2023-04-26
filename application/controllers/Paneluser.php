@@ -101,7 +101,7 @@ class Paneluser extends CI_Controller {
 			$proses = $this->Panel_m->edit('user_detail', array('user_detail_idsession' => $user_detail_idsession ))->row_array();
 			$data = array('rows' => $proses);		
 			$this->load->view('backend/visitor/verify-visitor',$data);
-		}elseif ($this->session->level=='2'){
+		}}elseif ($this->session->level=='2'){
 			cek_session_administrator($this->session->id_session);
 			$data['active_visitor'] = "class='active'";
 			$this->load->view('backend/paneluser/verify-visitor');
