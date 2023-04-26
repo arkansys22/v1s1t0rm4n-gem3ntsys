@@ -77,7 +77,7 @@ echo form_open_multipart('regist-visitor',$attributes); ?>
       </select>
       <label class="focus-label">Tenant</label>
     </div>
-    <small><?php echo form_error('user_tenant_id'); ?></small>
+    <small><?php echo form_error('user_tenant_id_session'); ?></small>
   </div>
   <div class="col-md-12 col-lg-6 col-xl-6 ">
     <div class="form-group form-focus">
