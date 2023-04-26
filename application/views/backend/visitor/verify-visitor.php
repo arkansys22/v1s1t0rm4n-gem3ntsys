@@ -117,7 +117,7 @@
                 <div class="card w-100">
                   <center>
                   <div class="card-body pt-0">
-                  <?php if (empty($rows['gambar'])){ ?>
+                  <?php if (empty($user['gambar'])){ ?>
                     <br>
                     <div id="my_camera"></div>
                     <br/>                    
@@ -184,7 +184,7 @@
       </div>
 
 
-        <?php if (empty($rows['gambar'])){ ?>
+        <?php if (empty($user['gambar'])){ ?>
         <script language="JavaScript">
             Webcam.set({
                 width: 200,
