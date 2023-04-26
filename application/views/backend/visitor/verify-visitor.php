@@ -137,7 +137,7 @@
                   </div>
                 </center>
                 </div>
-              </div>
+          </div>
           <div class="col-lg-3 d-flex">
             <div class="card w-100">
               <center>
@@ -181,28 +181,7 @@
   </div>    
    
 
-    <?php if (empty($rows['gambar'])){ ?>
-    <script language="JavaScript">
-        Webcam.set({
-            width: 200,
-            height: 200,
-            image_format: 'jpeg',
-            jpeg_quality: 90
-        });
-      
-        Webcam.attach( '#my_camera' );
-
-          function take_snapshot() {
-            Webcam.snap( function(data_uri) {
-                $(".image-tag").val(data_uri);
-                document.getElementById('results').innerHTML = '<img src="'+data_uri+'"/>';
-         
-            } );
-             }
-    </script>
-        <?php }else{ ?>
-
-         <?php } ?>   
+   
     
  <?php $this->load->view('backend/js')?>
 </body>
