@@ -45,6 +45,58 @@ class Paneluser extends CI_Controller {
 	{
 		if ($this->session->level=='1'){
 			cek_session_developer($this->session->id_session);
+			if (isset($_POST['submit'])){
+
+			if ($this->agent->is_browser())
+					{
+								$agent = 'Desktop ' .$this->agent->browser().' '.$this->agent->version();
+					}
+					elseif ($this->agent->is_robot())
+					{
+								$agent = $this->agent->robot();
+					}
+					elseif ($this->agent->is_mobile())
+					{
+								$agent = 'Mobile' .$this->agent->mobile().''.$this->agent->version();
+					}
+					else
+					{
+								$agent = 'Unidentified User Agent';
+					}
+
+			$config['upload_path'] = 'bahan/foto_user_detail/';
+			$config['allowed_types'] = 'gif|jpg|png|JPG|JPEG';
+			$id_session = $this->input->post('id_session');
+			$image = $this->input-> post('imagecam');
+			$image = str_replace('data:image/jpeg;base64,', '',$image);
+			$image = base64_decode($image,true);
+			$filename = $id_session . '.jpeg';
+			file_put_contents(FCPATH . './bahan/foto_user_detail/' . $filename, $image);
+
+				
+				$data = array(
+					'gambar' => $filename,
+					'user_status'=>'1');
+			
+					$where = array('id_session' => $this->input->post('id_session'));
+					$query = $this->db->update('user',$data,$where);
+
+					$log_file = array(
+									'id_user' => $this->session->id_session,
+									'user_log_ket' =>$this->input->post('id_session'),
+									'user_log_status'=>'Verified Visitor',								
+									'user_log_hari'=>hari_ini(date('w')),
+									'user_log_tanggal'=>date('Y-m-d'),
+									'user_log_jam'=>date('H:i:s'),
+									'user_log_device'=> $agent,
+									'user_log_ip' => $this->input->ip_address()
+								);							
+
+								$this->Crud_m->insert('user_log',$log_file);				
+				
+					redirect('paneluser/visitor_list');
+		}else{
+
 			$user_detail_idsession = $this->input->post('user_detail_idsession');
 			$proses = $this->Panel_m->edit('user_detail', array('user_detail_idsession' => $user_detail_idsession ))->row_array();
 			$data = array('rows' => $proses);		
