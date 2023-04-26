@@ -35,8 +35,8 @@
           </div>
         </div>
       </div>
-       <?php $rows['user_detail_idsession'] ?>
        
+
       <?php if (empty($rows['user_detail_idsession'])){ ?>
 
       <?php }else{ ?>
@@ -74,7 +74,7 @@
                   <small class="text-dark">Tenant</small>
                 </li>
                 <li>
-                  <?php $tenant= $this->Crud_m->view_where('user_tenant', array('user_tenant_id'=> $rows['user_tenant_id']))->row_array(); ?>
+                  <?php $tenant= $this->Crud_m->view_where('user_tenant', array('user_tenant_id_session'=> $rows['user_tenant_id_session']))->row_array(); ?>
                   <?php echo $tenant['user_tenant_nama'] ?>
                 </li>
                 <li class="pt-2 pb-0">
