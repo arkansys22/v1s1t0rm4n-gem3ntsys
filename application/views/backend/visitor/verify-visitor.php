@@ -152,9 +152,14 @@
             </div>
           </div>
           <?php if ($user['user_status'] == '3'){ ?>
-              <a href="../visitor_list" class="btn btn-grey">Back</a>
 
-               <?php }else{ ?>
+                <div class="form-group mb-0">
+                    <div class="settings-btns">
+                      <a href="../paneluser/visitor_list" class="btn btn-grey">Back</a>
+                    </div>
+                </div>
+
+          <?php }else{ ?>
 
 
               <?php $attributes = array('class'=>'form-horizontal','role'=>'form');
@@ -172,7 +177,7 @@
                 </div>
               <?php echo form_close(); ?>
 
-         <?php } ?>   
+          <?php } ?>   
         </div>       
         <br>
         <br>
