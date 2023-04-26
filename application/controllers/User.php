@@ -94,7 +94,7 @@ class User extends CI_Controller {
 					$id_pelanggan = $this->Crud_m->insert('user',$data_user);
 
 
-					$qrcode= md5(($id_pelanggan)date('YmdHis'));
+					$qrcode= md5(($id_pelanggan).''.date('YmdHis'));
 					$image_name=$qrcode.'.png';
 					$vdatefrom = $this->input->post('user_detail_vdatefrom');
 					$data_user_detail = array(
