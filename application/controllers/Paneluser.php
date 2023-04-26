@@ -953,7 +953,7 @@ class Paneluser extends CI_Controller {
 
 								$this->Crud_m->insert('user_log',$log_file);	
 
-			redirect('paneluser/tenantssetting');
+			redirect('paneluser/visitor_list');
 	}
 	public function save_visitor()
 	{
