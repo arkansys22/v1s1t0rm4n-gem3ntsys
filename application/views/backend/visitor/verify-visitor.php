@@ -35,6 +35,8 @@
           </div>
         </div>
       </div>
+       <?php $rows['user_detail_idsession'] ?>
+       
       <?php if (empty($rows['user_detail_idsession'])){ ?>
 
       <?php }else{ ?>
