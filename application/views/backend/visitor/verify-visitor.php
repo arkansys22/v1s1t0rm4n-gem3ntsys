@@ -151,7 +151,7 @@
             </center>
             </div>
           </div>
-          <?php if ($rows['user_status'] == '3'){ ?>
+          <?php if ($user['user_status'] == '3'){ ?>
               <a href="../visitor_list" class="btn btn-grey">Back</a>
 
                <?php }else{ ?>
