@@ -154,7 +154,7 @@
             </center>
             </div>
           </div>
-          <?php if ($user['user_status'] == '3'){ ?>
+          <?php if ($user['user_status'] == '3' OR $user['user_status'] == '4'){ ?>
 
                 <div class="form-group mb-0">
                     <div class="settings-btns">
