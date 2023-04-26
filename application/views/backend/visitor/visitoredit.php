@@ -33,6 +33,8 @@
                       <h5 class="card-title d-flex justify-content-between">
                         <span>Visit Registration Data</span>
                       </h5>
+                       <p>
+                    <small><?php echo $user_status['user_status_nama'] ?></small></p>
                     </div>
                   <ul class="list-unstyled mb-0">
                     <li class="py-0">
