@@ -42,6 +42,7 @@
 
       <?php }else { ?>
         <?php $user= $this->Crud_m->view_where('user', array('id_session'=> $rows['id_session']))->row_array(); ?>
+        <?php $user_status= $this->Crud_m->view_where('user_status', array('user_status_id'=> $user['user_status']))->row_array(); ?>
       <div class="content container-fluid">
         <div class="row">
           <div class="col-lg-3">
@@ -50,6 +51,7 @@
                 <div class="card-header mb-4">
                   <h5 class="card-title d-flex justify-content-between">
                     <span>Visit Registration Data</span>
+                    <small><?php echo $user_status['user_status_nama'] ?></small>
                   </h5>
                 </div>
               <ul class="list-unstyled mb-0">
