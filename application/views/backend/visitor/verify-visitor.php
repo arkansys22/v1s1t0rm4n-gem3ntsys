@@ -151,56 +151,56 @@
             </center>
             </div>
           </div>
+          <?php if ($rows['user_status'] == '3'){ ?>
+              <a href="../visitor_list" class="btn btn-grey">Back</a>
 
-          <?php $attributes = array('class'=>'form-horizontal','role'=>'form');
+               <?php }else{ ?>
+
+
+              <?php $attributes = array('class'=>'form-horizontal','role'=>'form');
                     echo form_open_multipart('paneluser/visitor_edit',$attributes); ?>
-              <div>
-              
+                <div>              
                     <input type="hidden" name="id_session" value="<?php echo $rows['id_session']
-                     ?>">
-                   
-                     <input type="hidden" name="imagecam" class="image-tag">
-                 
-
-                    
-                 
-                <div class="form-group mb-0">
-                    <div class="settings-btns">
-                      <button type="submit" name ="submit" class="btn btn-success">APPROVE</button>
-                      <a href="#" class="btn btn-warning">INVALID</a>
+                       ?>">                   
+                    <input type="hidden" name="imagecam" class="image-tag">
+                    <div class="form-group mb-0">
+                      <div class="settings-btns">
+                        <button type="submit" name ="submit" class="btn btn-success">APPROVE</button>
+                        <a href="#" class="btn btn-warning">INVALID</a>
+                      </div>
                     </div>
                 </div>
-              </div>
               <?php echo form_close(); ?>
+
+         <?php } ?>   
         </div>       
         <br>
         <br>
       </div>
-      
 
-    <?php if (empty($rows['gambar'])){ ?>
-    <script language="JavaScript">
-        Webcam.set({
-            width: 200,
-            height: 200,
-            image_format: 'jpeg',
-            jpeg_quality: 90
-        });
-      
-        Webcam.attach( '#my_camera' );
 
-          function take_snapshot() {
-            Webcam.snap( function(data_uri) {
-                $(".image-tag").val(data_uri);
-                document.getElementById('results').innerHTML = '<img src="'+data_uri+'"/>';
-         
-            } );
-             }
-    </script>
+        <?php if (empty($rows['gambar'])){ ?>
+        <script language="JavaScript">
+            Webcam.set({
+                width: 200,
+                height: 200,
+                image_format: 'jpeg',
+                jpeg_quality: 90
+            });
+          
+            Webcam.attach( '#my_camera' );
+
+              function take_snapshot() {
+                Webcam.snap( function(data_uri) {
+                    $(".image-tag").val(data_uri);
+                    document.getElementById('results').innerHTML = '<img src="'+data_uri+'"/>';
+             
+                } );
+                 }
+        </script>
         <?php }else{ ?>
-
          <?php } ?>   
-      
+
         <?php } ?>
     </div>
   </div>    
