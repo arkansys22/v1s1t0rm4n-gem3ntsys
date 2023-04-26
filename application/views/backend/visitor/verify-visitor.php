@@ -40,7 +40,7 @@
 
       <?php if (empty($rows['user_detail_idsession'])){ ?>
 
-      <?php }else{ ?>
+      <?php }else { ?>
         <?php $user= $this->Crud_m->view_where('user', array('id_session'=> $rows['id_session']))->row_array(); ?>
       <div class="content container-fluid">
         <div class="row">
@@ -173,14 +173,37 @@
               </div>
               <?php echo form_close(); ?>
         </div>       
-      <br>
-      <br>
+        <br>
+        <br>
       </div>
-    <?php } ?>
+      
+
+    <?php if (empty($rows['gambar'])){ ?>
+    <script language="JavaScript">
+        Webcam.set({
+            width: 200,
+            height: 200,
+            image_format: 'jpeg',
+            jpeg_quality: 90
+        });
+      
+        Webcam.attach( '#my_camera' );
+
+          function take_snapshot() {
+            Webcam.snap( function(data_uri) {
+                $(".image-tag").val(data_uri);
+                document.getElementById('results').innerHTML = '<img src="'+data_uri+'"/>';
+         
+            } );
+             }
+    </script>
+        <?php }else{ ?>
+
+         <?php } ?>   
+      
+        <?php } ?>
     </div>
   </div>    
-   
-
    
     
  <?php $this->load->view('backend/js')?>
