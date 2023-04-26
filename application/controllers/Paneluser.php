@@ -76,7 +76,7 @@ class Paneluser extends CI_Controller {
 				
 				$data = array(
 					'gambar' => $filename,
-					'user_status'=>'1');
+					'user_status'=>'3');
 			
 					$where = array('id_session' => $this->input->post('id_session'));
 					$query = $this->db->update('user',$data,$where);
@@ -887,7 +887,7 @@ class Paneluser extends CI_Controller {
 				
 				$data = array(
 					'gambar' => $filename,
-					'user_status'=>'1');
+					'user_status'=>'3');
 			
 					$where = array('id_session' => $this->input->post('id_session'));
 					$query = $this->db->update('user',$data,$where);
