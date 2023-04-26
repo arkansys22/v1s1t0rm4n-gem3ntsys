@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
 <title>VMS Panel | Dashboard Administrator</title>
 <?php $this->load->view('backend/css')?>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.25/webcam.js"></script>
 </head>
 <body>
  <div class="main-wrapper">
@@ -43,7 +44,7 @@
         <?php $user= $this->Crud_m->view_where('user', array('id_session'=> $rows['id_session']))->row_array(); ?>
       <div class="content container-fluid">
         <div class="row">
-          <div class="col-lg-4">
+          <div class="col-lg-3">
             <div class="card">
               <div class="card-body pt-0">
                 <div class="card-header mb-4">
@@ -99,7 +100,7 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-4 d-flex">
+          <div class="col-lg-3 d-flex">
             <div class="card w-100">
               <center>
               <div class="card-body pt-0">
@@ -112,7 +113,32 @@
             </center>
             </div>
           </div>
-          <div class="col-lg-4 d-flex">
+          <div class="col-lg-3 d-flex">
+                <div class="card w-100">
+                  <center>
+                  <div class="card-body pt-0">
+                  <?php if (empty($rows['gambar'])){ ?>
+                    <br>
+                    <div id="my_camera"></div>
+                    <br/>                    
+                    <div id="results">Your captured image will appear here...</div>
+                    <div class="card-header mb-4">
+                      <input type= "button" value="Take Snapshot" onClick="take_snapshot()">
+                      <h5 class="card-title">Selfie Photo Confirm</h5>
+                    </div>
+                  <?php }else{ ?>
+                        <br>
+                      <img style="height:200px; width:100%;" src="<?php echo base_url()?>bahan/foto_user_detail/<?php echo $rows['gambar'] ?>">
+                      <div class="card-header mb-4">
+                        <h5 class="card-title">Selfie Photo Confirm</h5>
+                      </div>
+                  <?php } ?>                    
+                     
+                  </div>
+                </center>
+                </div>
+              </div>
+          <div class="col-lg-3 d-flex">
             <div class="card w-100">
               <center>
               <div class="card-body pt-0">
@@ -125,16 +151,28 @@
             </center>
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-3 col-sm-6">
-            <a href="#" type="button" class="btn btn-warning btn-block" style="color:white;">INVALID</a>
-          </div>
-          <div class="col-lg-3 col-sm-6">
-            <a href="#" type="button" class="btn btn-success btn-block">APPROVED</a>
-          </div>
 
-        </div>
+          <?php $attributes = array('class'=>'form-horizontal','role'=>'form');
+                    echo form_open_multipart('paneluser/visitor_edit',$attributes); ?>
+              <div>
+              
+                    <input type="hidden" name="id_session" value="<?php echo $rows['id_session']
+                     ?>">
+                   
+                     <input type="hidden" name="imagecam" class="image-tag">
+                 
+
+                    
+                 
+                <div class="form-group mb-0">
+                    <div class="settings-btns">
+                      <button type="submit" name ="submit" class="btn btn-success">APPROVE</button>
+                      <a href="#" class="btn btn-warning">INVALID</a>
+                    </div>
+                </div>
+              </div>
+              <?php echo form_close(); ?>
+        </div>       
       <br>
       <br>
       </div>
@@ -142,6 +180,29 @@
     </div>
   </div>    
    
+
+    <?php if (empty($rows['gambar'])){ ?>
+    <script language="JavaScript">
+        Webcam.set({
+            width: 200,
+            height: 200,
+            image_format: 'jpeg',
+            jpeg_quality: 90
+        });
+      
+        Webcam.attach( '#my_camera' );
+
+          function take_snapshot() {
+            Webcam.snap( function(data_uri) {
+                $(".image-tag").val(data_uri);
+                document.getElementById('results').innerHTML = '<img src="'+data_uri+'"/>';
+         
+            } );
+             }
+    </script>
+        <?php }else{ ?>
+
+         <?php } ?>   
     
  <?php $this->load->view('backend/js')?>
 </body>
