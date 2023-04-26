@@ -45,7 +45,9 @@ class Paneluser extends CI_Controller {
 	{
 		if ($this->session->level=='1'){
 			cek_session_developer($this->session->id_session);
-			$data['rows'] = $this->Crud_m->view_join_where_ordering_user4('user','user_detail','id_session','id_session',array('level'=>'4'),'user_detail_vdatefrom','DESC');
+			$user_detail_idsession = $this->input->post('user_detail_idsession');
+			$proses = $this->Panel_m->edit('user_detail', array('user_detail_idsession' => $user_detail_idsession ))->row_array();
+			$data = array('rows' => $proses);		
 			$this->load->view('backend/visitor/verify-visitor',$data);
 		}elseif ($this->session->level=='2'){
 			cek_session_administrator($this->session->id_session);
