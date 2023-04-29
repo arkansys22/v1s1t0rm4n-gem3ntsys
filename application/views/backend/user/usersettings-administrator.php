@@ -38,8 +38,8 @@
 
         <div class="subscribe-employe users-list">
           <ul>
-            <li class="active"><a href="#">Active Users </a></li>
-            <li><a href="#">Inactive Users</a></li>
+            <li class="active"><a href="<?php echo base_url() ?>paneluser/usersettings/">Active Users </a></li>
+            <li><a href="<?php echo base_url() ?>paneluser/usersettingsinactive/">Inactive Users</a></li>
           </ul>
         </div>
 

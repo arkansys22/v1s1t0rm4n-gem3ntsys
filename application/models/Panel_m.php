@@ -64,6 +64,14 @@ class Panel_m extends CI_Model {
       return $this->db->get($table);
   }
 
+  public function view_where_this_join_today($table,$table2,$field,$data){
+  
+      $this->db->join($table2, $table.'.'.$field.'='.$table2.'.'.$field);
+      $this->db->where($data);
+      $this->db->where('user_post_tanggal',date('20y-m-d'));    
+      return $this->db->get($table);
+  }
+
   public function login($username, $password){
    // Validate
    $this->db->where('username', $username);
